@@ -9,7 +9,7 @@ the game was created and coded by us over one long weekend (21-24 july 2023) and
 * [@amymaton](https://github.com/AmyMaton) 🥑
 
 ## requirements 🚀
-* unity editor 2022.3 (lts)
+* unity editor 2022.3.4 (lts)
 
 ## license 📔
 the project is licensed under the bsd 2-clause license, meaning you can pretty much do what you want with our code as long as you keep the same license.
