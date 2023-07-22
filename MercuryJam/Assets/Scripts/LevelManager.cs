@@ -11,18 +11,15 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> Level1SpawnPoints;
     public List<GameObject> Level2SpawnPoints;
     public List<GameObject> Level3SpawnPoints;
-    private List<List<GameObject>> CompiledSpawnPoints;
+    private List<List<GameObject>> CompiledSpawnPoints = new List<List<GameObject>>();
 
-    private void Awake()
+    private void Start()
     {
         CompiledSpawnPoints.Add(Level1SpawnPoints);
         CompiledSpawnPoints.Add(Level2SpawnPoints);
         CompiledSpawnPoints.Add(Level3SpawnPoints);
-    }
 
-    private void Start()
-    {
-        switch(currentLevel)
+        switch (currentLevel)
         {
             case 1:
                 SpawnPoints = CompiledSpawnPoints[0];
