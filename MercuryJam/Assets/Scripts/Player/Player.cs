@@ -46,6 +46,6 @@ public class Player : MonoBehaviour
 
     private void UpdateHealthbar()
     {
-        //damageTextbox.text = _currentHealth + "/" + maxHealth;
+        damageTextbox.text = _currentHealth + "/" + maxHealth;
     }
 }
