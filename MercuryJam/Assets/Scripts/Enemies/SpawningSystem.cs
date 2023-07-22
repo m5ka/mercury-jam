@@ -14,8 +14,15 @@ public class SpawningSystem : MonoBehaviour
     public GameObject Enemy;
     private List<GameObject> _enemies = new List<GameObject>();
     public int MaxEnemies = 5;
-    private int _enemiesThisWave = 0;
+    private int _enemiesScoreThisWave = 0;
     private int _maxEnemiesThisWave = 10;
+
+    public WaveSystem WaveSystem;
+
+    public void Awake()
+    {
+        WaveSystem = GetComponent<WaveSystem>();
+    }
 
     public void Start()
     {
@@ -26,11 +33,11 @@ public class SpawningSystem : MonoBehaviour
     {
         while (true)
         {
-            if (_enemies.Count < MaxEnemies && _enemiesThisWave < _maxEnemiesThisWave)
+            if (_enemies.Count < MaxEnemies && _enemiesScoreThisWave < WaveSystem.WaveScore)
             {
                 GameObject NewEnemy = Instantiate(Enemy, SpawnPoints[Random.Range(0, SpawnPoints.Count)].transform.position, Quaternion.identity);
                 _enemies.Add(NewEnemy);
-                _enemiesThisWave++;
+                _enemiesScoreThisWave++;
             }
             yield return new WaitForSeconds(1.0f);
         }
