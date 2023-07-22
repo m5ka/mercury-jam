@@ -22,7 +22,7 @@ public class AbilityManager : MonoBehaviour
     private IEnumerator SpawnAbility()
     {
         yield return new WaitForSeconds(abilityDelay);
-        var ability = Instantiate(abilities[currentAbility], transform).GetComponent<Ability>();
+        var ability = Instantiate(abilities[currentAbility], transform);
         ability.Initiate(abilityLocation.position, playerTransform.forward);
         _cooldown = ability.cooldown;
         _delayStarted = false;
