@@ -7,15 +7,14 @@ using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.AI;
-
 public class SpawningSystem : MonoBehaviour
 {
     public List<GameObject> SpawnPoints;
+
     public List<GameObject> EnemyTypes;
     private List<GameObject> _enemies = new List<GameObject>();
     public int MaxEnemies = 5;
     private int _enemiesScoreThisWave = 0;
-    private int _maxEnemiesThisWave = 10;
 
     public WaveSystem WaveSystem;
 
