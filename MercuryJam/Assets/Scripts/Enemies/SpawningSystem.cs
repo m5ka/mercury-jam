@@ -7,20 +7,13 @@ using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.AI;
-public class SpawningSystem : MonoBehaviour
+public class SpawningSystem : Singleton<SpawningSystem>
 {
 
     public List<GameObject> EnemyTypes;
-    private List<GameObject> _enemies = new List<GameObject>();
+    public int enemyCount;
     public int MaxEnemies = 5;
-    private int _enemiesScoreThisWave = 0;
-
-    public WaveSystem WaveSystem;
-
-    public void Awake()
-    {
-        WaveSystem = GetComponent<WaveSystem>();
-    }
+    public int enemiesScoreThisWave = 0;
 
     public void Start()
     {
@@ -31,13 +24,17 @@ public class SpawningSystem : MonoBehaviour
     {
         while (true)
         {
-            if (_enemies.Count < MaxEnemies && _enemiesScoreThisWave < WaveSystem.WaveScore)
+            if (enemyCount < MaxEnemies && enemiesScoreThisWave < WaveSystem.Instance.WaveScore)
             {
                 int chosenEnemy = Random.Range(0,EnemyTypes.Count);
 
-                GameObject NewEnemy = Instantiate(EnemyTypes[chosenEnemy], LevelManager.Instance.SpawnPoints[Random.Range(0, LevelManager.Instance.SpawnPoints.Count)].transform.position, Quaternion.identity);
-                _enemies.Add(NewEnemy);
-                _enemiesScoreThisWave = _enemiesScoreThisWave + EnemyTypes[chosenEnemy].GetComponent<EnemyStats>().difficulty;
+                if (Instantiate(EnemyTypes[chosenEnemy],
+                    LevelManager.Instance.Levels[LevelManager.Instance.currentLevel].GetComponent<LevelData>().SpawnPoints[Random.Range(0, LevelManager.Instance.Levels[LevelManager.Instance.currentLevel].GetComponent<LevelData>().SpawnPoints.Count)].transform.position,
+                    Quaternion.identity))
+                {
+                    enemyCount++;
+                }
+                enemiesScoreThisWave = enemiesScoreThisWave + EnemyTypes[chosenEnemy].GetComponent<EnemyStats>().difficulty;
             }
             yield return new WaitForSeconds(1.0f);
         }

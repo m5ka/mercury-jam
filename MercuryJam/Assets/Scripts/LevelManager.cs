@@ -1,47 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
 {
     public int currentLevel;
 
-    public List<GameObject> SpawnPoints;
-    public List<GameObject> Level1SpawnPoints;
-    public List<GameObject> Level2SpawnPoints;
-    public List<GameObject> Level3SpawnPoints;
-
-    public GameObject Level1PlayerSpawn;
-    public GameObject Level2PlayerSpawn;
-    public GameObject Level3PlayerSpawn;
+    public List<GameObject> Levels;
 
 
     protected override void Awake()
     {
         base.Awake();
-        switch (currentLevel)
-        {
-            case 1:
-                SpawnPoints = Level1SpawnPoints;
-                break;
-            case 2:
-                SpawnPoints = Level2SpawnPoints;
-                break;
-            case 3:
-                SpawnPoints = Level3SpawnPoints;
-                break;
-            default:
-                Debug.Log("Level Spawn fucked");
-                break;
-        }
     }
 
     public void NewLevel()
     {
         WaveSystem.Instance.NextWave();
-        Debug.Log("Next Level");
+        currentLevel = Random.Range(0, Levels.Count);
+        UpdatePlayerPosForLevelChange();
     }
 
+    public void UpdatePlayerPosForLevelChange()
+    {
+        Player.CurrentPlayer.Teleport(new Vector3(Levels[currentLevel].GetComponent<LevelData>().PlayerSpawnPoint.transform.position.x, Player.CurrentPlayer.Position.y, Levels[currentLevel].GetComponent<LevelData>().PlayerSpawnPoint.transform.position.z)); ;
 
-
+    }
 }
