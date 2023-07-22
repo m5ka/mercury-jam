@@ -1067,10 +1067,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1339590629}
   - component: {fileID: 1339590632}
-  - component: {fileID: 1339590631}
-  - component: {fileID: 1339590630}
   - component: {fileID: 1339590633}
   - component: {fileID: 1339590634}
+  - component: {fileID: 1339590631}
+  - component: {fileID: 1339590630}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -1173,6 +1173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1244223027}
+  enemy: {fileID: 1339590632}
   speed: 2
   targetDistance: 3
 --- !u!114 &1339590634
@@ -1188,7 +1189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1244223027}
+  enemy: {fileID: 1339590632}
   requiredProximity: 3
+  damageDelay: 0.8
   cooldown: 2
   damage: 1
 --- !u!1 &1831004180

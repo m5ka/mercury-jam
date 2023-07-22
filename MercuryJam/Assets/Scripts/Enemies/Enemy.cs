@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public bool Dead => _dead;
+
     public Animator animator;
     public TextMeshPro damageTextbox;
     public int maxHealth;
-
+    
     private bool _dead;
     private int _currentHealth;
 

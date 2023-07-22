@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyStalking : MonoBehaviour
 {
     public Animator animator;
+    public Enemy enemy;
     public float speed = 2.0f;
     public float targetDistance = 3.0f;
     
@@ -18,6 +19,8 @@ public class EnemyStalking : MonoBehaviour
     public void Update()
     {
         if (Player.CurrentPlayer is null)
+            return;
+        if (enemy.Dead)
             return;
         var playerPosition = Player.CurrentPlayer.Position;
         _transform.rotation = Quaternion.LookRotation(playerPosition - _transform.position, Vector3.up);
