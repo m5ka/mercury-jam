@@ -188,6 +188,7 @@ MonoBehaviour:
   - {fileID: 720799761}
   - {fileID: 291739989}
   Enemy: {fileID: 8673996232789037967, guid: cda45a7437623944495ce6beb12acf2f, type: 3}
+  EnemysThisWave: 5
 --- !u!4 &554307670
 Transform:
   m_ObjectHideFlags: 0

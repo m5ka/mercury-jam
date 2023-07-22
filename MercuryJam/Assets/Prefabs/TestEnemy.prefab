@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 21687602758597835}
   - component: {fileID: 351914316285561281}
+  - component: {fileID: -7305730099958291219}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -136,7 +137,7 @@ Transform:
   m_Children:
   - {fileID: 6161863491606949710}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &351914316285561281
 MonoBehaviour:
@@ -148,5 +149,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd787b4ef63bfa47b4b8671fa25a79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7305730099958291219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8673996232789037967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413cd53cb87b67744b594b03c8c5a724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
