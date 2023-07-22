@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsMoving", direction != Vector3.zero);
         if (direction != Vector3.zero)
         {
-            Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
+            var rotation = Quaternion.LookRotation(direction, Vector3.up);
             _transform.rotation =
                 Quaternion.RotateTowards(_transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         }
