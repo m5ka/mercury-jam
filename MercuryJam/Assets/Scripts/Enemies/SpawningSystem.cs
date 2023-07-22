@@ -34,7 +34,7 @@ public class SpawningSystem : Singleton<SpawningSystem>
                 {
                     enemyCount++;
                 }
-                enemiesScoreThisWave = enemiesScoreThisWave + EnemyTypes[chosenEnemy].GetComponent<EnemyStats>().difficulty;
+                enemiesScoreThisWave = enemiesScoreThisWave + EnemyTypes[chosenEnemy].GetComponent<Enemy>().difficulty;
             }
             yield return new WaitForSeconds(1.0f);
         }

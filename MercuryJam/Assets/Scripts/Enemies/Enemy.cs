@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public TextMeshPro damageTextbox;
     public int maxHealth;
+    public int difficulty = 1;
     
     private bool _dead;
     private int _currentHealth;
@@ -44,6 +45,7 @@ public class Enemy : MonoBehaviour
         _dead = true;
         animator.SetBool("IsDead", true);
         damageTextbox.text = "";
+        SpawningSystem.Instance.enemyCount--;
         StartCoroutine(WaitAndDestroy());
     }
 

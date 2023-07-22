@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06206e5489a1b778289c0c2d65a4b572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1.5
+  cooldown: 0.8
   speed: 7
   maxDistance: 24
   damage: 1

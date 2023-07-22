@@ -28,7 +28,7 @@ public class EnemyStalking : MonoBehaviour
         {
             animator.SetBool("IsMoving", true);
             _transform.position =
-                Vector3.MoveTowards(_transform.position, playerPosition, speed * Time.deltaTime);;
+                Vector3.MoveTowards(_transform.position, new Vector3(playerPosition.x, 0, playerPosition.y), speed * Time.deltaTime);;
             return;
         }
         animator.SetBool("IsMoving", false);

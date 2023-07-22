@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class WaveSystem : Singleton<WaveSystem>
     public void NextWave()
     {
         CurrentWave++;
-        WaveScore = CurrentWave * (10 + CurrentWave);
+        WaveScore = (int)Math.Ceiling(WaveScore * 1.2);
         progessSpawnLevelEnd = true;
     }
 
