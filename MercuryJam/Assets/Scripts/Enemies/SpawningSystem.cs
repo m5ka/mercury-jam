@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,8 +11,7 @@ using UnityEngine.AI;
 public class SpawningSystem : MonoBehaviour
 {
     public List<GameObject> SpawnPoints;
-
-    public GameObject Enemy;
+    public List<GameObject> EnemyTypes;
     private List<GameObject> _enemies = new List<GameObject>();
     public int MaxEnemies = 5;
     private int _enemiesScoreThisWave = 0;
@@ -35,9 +35,11 @@ public class SpawningSystem : MonoBehaviour
         {
             if (_enemies.Count < MaxEnemies && _enemiesScoreThisWave < WaveSystem.WaveScore)
             {
-                GameObject NewEnemy = Instantiate(Enemy, SpawnPoints[Random.Range(0, SpawnPoints.Count)].transform.position, Quaternion.identity);
+                int chosenEnemy = Random.Range(0,EnemyTypes.Count);
+                
+                GameObject NewEnemy = Instantiate(EnemyTypes[chosenEnemy], SpawnPoints[Random.Range(0, SpawnPoints.Count)].transform.position, Quaternion.identity);
                 _enemies.Add(NewEnemy);
-                _enemiesScoreThisWave++;
+                _enemiesScoreThisWave = _enemiesScoreThisWave + EnemyTypes[chosenEnemy].GetComponent<EnemyStats>().difficulty;
             }
             yield return new WaitForSeconds(1.0f);
         }
