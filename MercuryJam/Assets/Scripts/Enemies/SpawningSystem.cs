@@ -36,7 +36,7 @@ public class SpawningSystem : MonoBehaviour
             if (_enemies.Count < MaxEnemies && _enemiesScoreThisWave < WaveSystem.WaveScore)
             {
                 int chosenEnemy = Random.Range(0,EnemyTypes.Count);
-                
+
                 GameObject NewEnemy = Instantiate(EnemyTypes[chosenEnemy], LevelManager.SpawnPoints[Random.Range(0, LevelManager.SpawnPoints.Count)].transform.position, Quaternion.identity);
                 _enemies.Add(NewEnemy);
                 _enemiesScoreThisWave = _enemiesScoreThisWave + EnemyTypes[chosenEnemy].GetComponent<EnemyStats>().difficulty;
