@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class SpawningSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<GameObject> SpawnPoints;
 
-    // Update is called once per frame
-    void Update()
+    public GameObject Enemy;
+
+    private void Start()
     {
-        
+        for (int i = 0; i < SpawnPoints.Count; i++)
+        {
+            Instantiate(Enemy, SpawnPoints[i].transform.position, Quaternion.identity);
+        }
     }
 }
+
+   
