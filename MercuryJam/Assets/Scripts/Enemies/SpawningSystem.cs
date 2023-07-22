@@ -16,12 +16,10 @@ public class SpawningSystem : MonoBehaviour
     private int _enemiesScoreThisWave = 0;
 
     public WaveSystem WaveSystem;
-    public LevelManager LevelManager;
 
     public void Awake()
     {
         WaveSystem = GetComponent<WaveSystem>();
-        LevelManager = GetComponent<LevelManager>();
     }
 
     public void Start()
@@ -37,7 +35,7 @@ public class SpawningSystem : MonoBehaviour
             {
                 int chosenEnemy = Random.Range(0,EnemyTypes.Count);
 
-                GameObject NewEnemy = Instantiate(EnemyTypes[chosenEnemy], LevelManager.SpawnPoints[Random.Range(0, LevelManager.SpawnPoints.Count)].transform.position, Quaternion.identity);
+                GameObject NewEnemy = Instantiate(EnemyTypes[chosenEnemy], LevelManager.Instance.SpawnPoints[Random.Range(0, LevelManager.Instance.SpawnPoints.Count)].transform.position, Quaternion.identity);
                 _enemies.Add(NewEnemy);
                 _enemiesScoreThisWave = _enemiesScoreThisWave + EnemyTypes[chosenEnemy].GetComponent<EnemyStats>().difficulty;
             }
