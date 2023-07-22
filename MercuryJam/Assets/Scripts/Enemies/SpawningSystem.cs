@@ -28,7 +28,9 @@ public class SpawningSystem : Singleton<SpawningSystem>
             {
                 int chosenEnemy = Random.Range(0,EnemyTypes.Count);
 
-                if (Instantiate(EnemyTypes[chosenEnemy], LevelManager.Instance.SpawnPoints[Random.Range(0, LevelManager.Instance.SpawnPoints.Count)].transform.position, Quaternion.identity))
+                if (Instantiate(EnemyTypes[chosenEnemy],
+                    LevelManager.Instance.Levels[LevelManager.Instance.currentLevel].GetComponent<LevelData>().SpawnPoints[Random.Range(0, LevelManager.Instance.Levels[LevelManager.Instance.currentLevel].GetComponent<LevelData>().SpawnPoints.Count)].transform.position,
+                    Quaternion.identity))
                 {
                     enemyCount++;
                 }
