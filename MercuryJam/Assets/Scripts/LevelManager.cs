@@ -19,19 +19,11 @@ public class LevelManager : Singleton<LevelManager>
     public GameObject Level2PlayerSpawn;
     public GameObject Level3PlayerSpawn;
 
-    public GameObject player;
-    private CharacterController playerCharacterController;
-
 
     protected override void Awake()
     {
         base.Awake();
         PopulateLevelData();
-    }
-
-    private void Start()
-    {
-        playerCharacterController = player.GetComponent<CharacterController>();
     }
 
     public void NewLevel()
@@ -45,9 +37,8 @@ public class LevelManager : Singleton<LevelManager>
 
     public void UpdatePlayerPosForLevelChange()
     {
-        playerCharacterController.enabled = false;
-        player.transform.position = new Vector3(PlayerSpawn.transform.position.x, player.transform.position.y, PlayerSpawn.transform.position.z);
-        playerCharacterController.enabled = true;
+        Player.CurrentPlayer.Teleport(new Vector3(PlayerSpawn.transform.position.x, Player.CurrentPlayer.Position.y, PlayerSpawn.transform.position.z));
+
     }
 
     public void PopulateLevelData()

@@ -11,7 +11,7 @@ public class NextLevel : MonoBehaviour
         if (canTrigger == true)
         {
             canTrigger = false;
-            if (other.gameObject.name == "Player")
+            if (other.gameObject == Player.CurrentPlayer)
             {
                 LevelManager.Instance.NewLevel();
                 Destroy(gameObject);

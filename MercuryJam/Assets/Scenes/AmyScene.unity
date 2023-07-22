@@ -457,7 +457,6 @@ MonoBehaviour:
   Level1PlayerSpawn: {fileID: 60509654}
   Level2PlayerSpawn: {fileID: 2111793879}
   Level3PlayerSpawn: {fileID: 1783527751}
-  player: {fileID: 1413188853}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +889,7 @@ GameObject:
   - component: {fileID: 1413188855}
   - component: {fileID: 1413188854}
   - component: {fileID: 1413188857}
+  - component: {fileID: 1413188858}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -978,6 +978,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1413188858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413188853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7615652f3bd1b48cb6941b2fe4bbc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTextbox: {fileID: 0}
+  maxHealth: 10
 --- !u!1 &1506658490
 GameObject:
   m_ObjectHideFlags: 0

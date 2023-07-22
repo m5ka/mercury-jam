@@ -15,7 +15,6 @@ public class WaveSystem : Singleton<WaveSystem>
     {
         CurrentWave++;
         WaveScore = CurrentWave * (10 + CurrentWave);
-        Debug.Log("current wave: " +  CurrentWave);
         progessSpawnLevelEnd = true;
     }
 
