@@ -9,4 +9,9 @@ public class Destroy : MonoBehaviour
         Destroy(gameObject,3);
     }
 
+    private void OnDestroy()
+    {
+        SpawningSystem.Instance.enemyCount--;
+    }
+
 }

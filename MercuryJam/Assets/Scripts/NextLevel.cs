@@ -14,6 +14,7 @@ public class NextLevel : MonoBehaviour
             if (other.gameObject.name == "Player")
             {
                 LevelManager.Instance.NewLevel();
+                Destroy(gameObject);
             }
         }
     }
