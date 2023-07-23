@@ -256,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6462543612617579227}
   damageTextbox: {fileID: 4985981807093456599}
-  maxHealth: 2
+  maxHealth: 4
   difficulty: 2
 --- !u!114 &8253767331114517857
 MonoBehaviour:
