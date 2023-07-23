@@ -8,20 +8,12 @@ using UnityEngine;
 [InfoBox("This game object triggers the next level on collision with the player.")]
 public class TriggerNextLevel : MonoBehaviour
 {
-    private bool _canTrigger = true;
-
     private void OnTriggerEnter(Collider other)
     {
-        _canTrigger = false;
         if (other.gameObject.CompareTag("Player"))
         {
             LevelManager.Instance.NewLevel();
             Destroy(gameObject);
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        _canTrigger = true;
     }
 }
