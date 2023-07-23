@@ -16,6 +16,6 @@ public class HUDManager : Singleton<HUDManager>
 
     public void UpdateLevelText()
     {
-        levelText.text = ("Level: " + LevelManager.Instance.LevelsBeat.ToString());
+        levelText.text = "Level: " + LevelManager.Instance.LevelsBeat;
     }
 }
