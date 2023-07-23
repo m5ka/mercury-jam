@@ -7,6 +7,12 @@ using UnityEngineInternal;
 public class HUDManager : Singleton<HUDManager>
 {
     public TMP_Text levelText;
+    public TMP_Text healthText;
+    public GameObject resetPanel;
+    private void Start()
+    {
+        resetPanel.SetActive(false);
+    }
 
     public void UpdateLevelText()
     {
