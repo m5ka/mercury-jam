@@ -64,6 +64,10 @@ public class Player : MonoBehaviour
     public void HealPlayer(int heal)
     {
         _currentHealth += heal;
+        if (_currentHealth > maxHealth )
+        {
+            _currentHealth = maxHealth;
+        }
         UpdateHealthbar();
     }
 
