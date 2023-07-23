@@ -23,12 +23,13 @@ public class EnemyStalking : MonoBehaviour
         if (enemy.Dead)
             return;
         var playerPosition = Player.CurrentPlayer.Position;
+        playerPosition = new Vector3(playerPosition.x, 0, playerPosition.z);
         _transform.rotation = Quaternion.LookRotation(playerPosition - _transform.position, Vector3.up);
         if (Vector3.Distance(playerPosition, _transform.position) > targetDistance)
         {
             animator.SetBool("IsMoving", true);
             _transform.position =
-                Vector3.MoveTowards(_transform.position, new Vector3(playerPosition.x, 0, playerPosition.y), speed * Time.deltaTime);;
+                Vector3.MoveTowards(_transform.position, playerPosition, speed * Time.deltaTime);;
             return;
         }
         animator.SetBool("IsMoving", false);
