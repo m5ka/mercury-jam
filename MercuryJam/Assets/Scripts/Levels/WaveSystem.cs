@@ -25,8 +25,6 @@ public class WaveSystem : Singleton<WaveSystem>
 
     public void FixedUpdate()
     {
-        Debug.Log("WaveDifficulty: " + waveDifficulty);
-
         if (SpawningSystem.Instance.EnemyCount == 0 && SpawningSystem.Instance.combinedDifficulty == waveDifficulty)
         {
             if (_progessSpawnLevelEnd)
