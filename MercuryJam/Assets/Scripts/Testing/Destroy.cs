@@ -11,7 +11,6 @@ public class Destroy : MonoBehaviour
 
     private void OnDestroy()
     {
-        SpawningSystem.Instance.enemyCount--;
+        SpawningSystem.Instance.DecreaseCount();
     }
-
 }

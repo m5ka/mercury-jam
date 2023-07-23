@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         _dead = true;
         animator.SetBool("IsDead", true);
         damageTextbox.text = "";
-        SpawningSystem.Instance.enemyCount--;
+        SpawningSystem.Instance.DecreaseCount();
         StartCoroutine(WaitAndDestroy());
     }
 

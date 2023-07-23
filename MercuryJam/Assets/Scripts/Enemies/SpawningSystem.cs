@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using Unity.VisualScripting;
-using UnityEditor.ShaderKeywordFilter;
+using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.AI;
+
+[HideMonoScript]
 public class SpawningSystem : Singleton<SpawningSystem>
 {
+    public int EnemyCount => _enemyCount;
 
-    public List<GameObject> EnemyTypes;
-    public int enemyCount;
-    public int MaxEnemies = 5;
-    public int enemiesScoreThisWave = 0;
+    [BoxGroup("Enemies"), LabelText("Types")] public List<GameObject> enemyTypes;
+    [BoxGroup("Enemies"), LabelText("Maximum number")] public int maxEnemies = 5;
+    [BoxGroup("Enemies"), LabelText("Maximum score")] public int enemiesScoreThisWave = 10;
 
+    private int _enemyCount = 0;
+    
     public void Start()
     {
         StartCoroutine(SpawnEnemy());
@@ -24,20 +23,29 @@ public class SpawningSystem : Singleton<SpawningSystem>
     {
         while (true)
         {
-            if (enemyCount < MaxEnemies && enemiesScoreThisWave < WaveSystem.Instance.WaveScore)
+            if (_enemyCount < maxEnemies && enemiesScoreThisWave < WaveSystem.Instance.waveScore)
             {
-                int chosenEnemy = Random.Range(0,EnemyTypes.Count);
+                int chosenEnemy = Random.Range(0,enemyTypes.Count);
 
-                if (Instantiate(EnemyTypes[chosenEnemy],
-                    LevelManager.Instance.Levels[LevelManager.Instance.currentLevel].GetComponent<LevelData>().SpawnPoints[Random.Range(0, LevelManager.Instance.Levels[LevelManager.Instance.currentLevel].GetComponent<LevelData>().SpawnPoints.Count)].transform.position,
+                if (Instantiate(enemyTypes[chosenEnemy],
+                    LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
+                        .GetComponent<LevelData>().SpawnPoints[
+                            Random.Range(0, LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
+                                .GetComponent<LevelData>().SpawnPoints.Count)
+                        ].transform.position,
                     Quaternion.identity))
                 {
-                    enemyCount++;
+                    _enemyCount++;
                 }
-                enemiesScoreThisWave = enemiesScoreThisWave + EnemyTypes[chosenEnemy].GetComponent<Enemy>().difficulty;
+                enemiesScoreThisWave = enemiesScoreThisWave + enemyTypes[chosenEnemy].GetComponent<Enemy>().difficulty;
             }
             yield return new WaitForSeconds(1.0f);
         }
+    }
+
+    public void DecreaseCount()
+    {
+        _enemyCount--;
     }
 }
 
