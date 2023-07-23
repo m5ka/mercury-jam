@@ -255,10 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b41804c08f6ad249a31586e8ae02a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyTypes:
+  enemyTypes:
   - {fileID: 8673996232789037967, guid: cda45a7437623944495ce6beb12acf2f, type: 3}
-  enemyCount: 0
-  MaxEnemies: 5
+  maxEnemies: 5
   enemiesScoreThisWave: 0
 --- !u!4 &554307670
 Transform:
@@ -287,9 +286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f2eb182ae3a1a4f80fef2e3e0bb32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentWave: 1
-  WaveScore: 10
-  NextLevelObject: {fileID: 3937003601431799591, guid: 8ffd3ae3df8b1d04a8dd651519775a83, type: 3}
+  currentWave: 1
+  waveScore: 3
+  nextLevelTriggerObject: {fileID: 1781300719300443085, guid: dc318be1758899bf49b8019247867536, type: 3}
 --- !u!114 &554307673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,11 +301,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0146c7243127da498bb80b63c7d8341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  Levels:
+  levels:
   - {fileID: 445025152}
   - {fileID: 1625315430}
   - {fileID: 1052450988}
+  currentLevel: 0
 --- !u!114 &554307674
 MonoBehaviour:
   m_ObjectHideFlags: 0
