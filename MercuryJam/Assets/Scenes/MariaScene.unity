@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1623592631}
-  movementSpeed: 5
+  movementSpeed: 8
   rotationSpeed: 720
 --- !u!114 &340136181
 MonoBehaviour:
@@ -590,6 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTypes:
   - {fileID: 4404186670737837750, guid: fad72a2bc692892e68e3020a7a941395, type: 3}
+  - {fileID: 8999573762493742934, guid: cfc5ce828c09f59eca4f1e9f3879f889, type: 3}
   maxEnemies: 3
   combinedDifficulty: 0
 --- !u!4 &1247656382
@@ -729,7 +730,7 @@ MeshRenderer:
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
-  m_MotionVectors: 1
+  m_MotionVectors: 0
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
@@ -1118,7 +1119,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: i am level
+  m_text: Level 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
