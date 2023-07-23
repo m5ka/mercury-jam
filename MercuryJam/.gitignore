@@ -76,3 +76,7 @@ crashlytics-build.properties
 
 # JetBrains
 .idea/
+
+# plugins
+/[Aa]ssets/[Pp]lugins/*
+/[Aa]ssets/[Pp]lugins.meta
