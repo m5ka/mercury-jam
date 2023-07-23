@@ -12,12 +12,14 @@ public class Enemy : MonoBehaviour
     public TextMeshPro damageTextbox;
     public int maxHealth;
     public int difficulty = 1;
-    
+
+    private Collider _collider;
     private bool _dead;
     private int _currentHealth;
 
     public void Start()
     {
+        _collider = GetComponent<Collider>();
         _currentHealth = maxHealth;
         UpdateHealthbar();
     }
@@ -43,6 +45,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         _dead = true;
+        _collider.enabled = false;
         animator.SetBool("IsDead", true);
         damageTextbox.text = "";
         SpawningSystem.Instance.DecreaseCount();
