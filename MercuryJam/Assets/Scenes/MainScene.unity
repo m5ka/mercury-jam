@@ -602,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4101026667053075764, guid: e26e40334452e294ba74e2848b385ff7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 4101026667053075764, guid: e26e40334452e294ba74e2848b385ff7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -726,6 +726,7 @@ MonoBehaviour:
   - {fileID: 917799560}
   - {fileID: 917799559}
   PlayerSpawnPoint: {fileID: 917799558}
+  LevelCamera: {fileID: 0}
 --- !u!1001 &951631927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -788,7 +789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5582893242305636550, guid: c6d013bc5ed743147a1bc6b0ad4ea544, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5582893242305636550, guid: c6d013bc5ed743147a1bc6b0ad4ea544, type: 3}
       propertyPath: m_LocalRotation.w
@@ -880,6 +881,7 @@ MonoBehaviour:
   - {fileID: 951631931}
   - {fileID: 951631930}
   PlayerSpawnPoint: {fileID: 951631929}
+  LevelCamera: {fileID: 0}
 --- !u!1001 &1072459694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1034,6 +1036,7 @@ MonoBehaviour:
   - {fileID: 1072459698}
   - {fileID: 1072459697}
   PlayerSpawnPoint: {fileID: 1072459696}
+  LevelCamera: {fileID: 0}
 --- !u!1 &1220299241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,12 +1172,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 1454874031}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1454874031}
+  m_maskType: 0
 --- !u!23 &1454874031
 MeshRenderer:
   m_ObjectHideFlags: 0

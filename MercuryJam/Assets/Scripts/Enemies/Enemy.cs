@@ -59,6 +59,9 @@ public class Enemy : MonoBehaviour
 
     private void UpdateHealthbar()
     {
-        damageTextbox.text = _currentHealth + "/" + maxHealth;
+        if (damageTextbox != null)
+        {
+            damageTextbox.text = _currentHealth + "/" + maxHealth;
+        }
     }
 }
