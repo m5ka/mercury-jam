@@ -27,5 +27,6 @@ public class LevelManager : Singleton<LevelManager>
     public void UpdatePlayerPosForLevelChange()
     {
         Player.CurrentPlayer.Teleport(new Vector3(Levels[currentLevel].GetComponent<LevelData>().PlayerSpawnPoint.transform.position.x, Player.CurrentPlayer.Position.y, Levels[currentLevel].GetComponent<LevelData>().PlayerSpawnPoint.transform.position.z));
+        Levels[currentLevel].GetComponent<LevelData>().LevelCamera.SetActive(true);
     }
 }
