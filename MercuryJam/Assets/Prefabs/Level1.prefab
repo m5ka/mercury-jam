@@ -203,7 +203,7 @@ Transform:
   - {fileID: 4545413801316520165}
   - {fileID: 1998933515002998622}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4852261567421954261
 MonoBehaviour:
@@ -222,7 +222,7 @@ MonoBehaviour:
   - {fileID: 4532793315588204083}
   - {fileID: 1383424983421149383}
   PlayerSpawnPoint: {fileID: 6939766330087746979}
-  LevelCamera: {fileID: 0}
+  LevelCamera: {fileID: 6085320619246055073}
 --- !u!1 &4532793315588204083
 GameObject:
   m_ObjectHideFlags: 0
