@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
         _collider.enabled = false;
         animator.SetBool("IsDead", true);
         damageTextbox.text = "";
-        SpawningSystem spawn = SpawningSystem.Instance;
+        SpawnManager spawn = SpawnManager.Instance;
         spawn.currentEnemies.Remove(gameObject);
         spawn.DecreaseCount();
         StartCoroutine(WaitAndDestroy());

@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 [HideMonoScript]
-public class SpawningSystem : Singleton<SpawningSystem>
+public class SpawnManager : Singleton<SpawnManager>
 {
     public int EnemyCount => _enemyCount;
     public List<GameObject> currentEnemies = new List<GameObject>();
@@ -24,7 +24,7 @@ public class SpawningSystem : Singleton<SpawningSystem>
     {
         while (true)
         {
-            if (_enemyCount < maxEnemies && combinedDifficulty < WaveSystem.Instance.waveDifficulty)
+            if (_enemyCount < maxEnemies && combinedDifficulty < WaveManager.Instance.waveDifficulty)
             {
                 int chosenEnemy = Random.Range(0,enemyTypes.Count);
                 if (Player.CurrentPlayer.CurrentHealth >0)

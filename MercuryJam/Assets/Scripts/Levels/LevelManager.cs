@@ -26,7 +26,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void NewLevel()
     {
-        WaveSystem.Instance.NextWave();
+        WaveManager.Instance.NextWave();
         if (levels.Count > 1)
         {
             do

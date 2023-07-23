@@ -11,6 +11,6 @@ public class Destroy : MonoBehaviour
 
     private void OnDestroy()
     {
-        SpawningSystem.Instance.DecreaseCount();
+        SpawnManager.Instance.DecreaseCount();
     }
 }

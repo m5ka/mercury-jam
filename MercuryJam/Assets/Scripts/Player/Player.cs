@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
         if (damageTextbox is not null)
             damageTextbox.text = "";
         animator.SetBool("IsDead", true);
-        SpawningSystem.Instance.ClearEnemies();
+        SpawnManager.Instance.ClearEnemies();
         HUDManager.Instance.resetPanel.SetActive(true);
     }
 
