@@ -315,4 +315,4 @@ MonoBehaviour:
   - {fileID: 7336334612802511662}
   - {fileID: 4618539030692173749}
   PlayerSpawnPoint: {fileID: 6033023314650530046}
-  LevelCamera: {fileID: 7532572037863040522}
+  LevelCamera: {fileID: 0}
