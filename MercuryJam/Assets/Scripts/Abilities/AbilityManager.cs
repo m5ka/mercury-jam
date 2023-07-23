@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
+[HideMonoScript]
 public class AbilityManager : MonoBehaviour
 {
-    public List<Ability> abilities;
-    public int currentAbility;
+    [BoxGroup("Abilities")] public List<Ability> abilities;
+    [BoxGroup("Abilities"), LabelText("Current")] public int currentAbility;
     
-    public Transform abilityLocation;
-    public AbilityIndicator abilityIndicator;
+    [BoxGroup("Ability config"), LabelText("Location")] public Transform abilityLocation;
+    [BoxGroup("Ability config"), LabelText("Indicator")] public AbilityIndicator abilityIndicator;
+    [BoxGroup("Ability config"), LabelText("Delay")] public float abilityDelay = 0.4f;
     
-    public Animator playerAnimator;
-    public Transform playerTransform;
-    
-    public float abilityDelay = 0.4f;
+    [BoxGroup("Player"), LabelText("Animator")] public Animator playerAnimator;
+    [BoxGroup("Player"), LabelText("Transform")] public Transform playerTransform;
 
     private bool _delayStarted = false;
     private float _cooldown;
