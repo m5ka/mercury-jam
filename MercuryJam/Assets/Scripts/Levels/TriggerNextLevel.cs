@@ -12,8 +12,6 @@ public class TriggerNextLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!_canTrigger)
-            return;
         _canTrigger = false;
         if (other.gameObject.CompareTag("Player"))
         {
