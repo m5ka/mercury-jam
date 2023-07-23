@@ -16,6 +16,11 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Start()
     {
+        BeginGame();
+    }
+
+    private void BeginGame()
+    {
         NewLevel();
     }
 

@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     {
         if (!_dead && _currentHealth <= 0)
             Die();
+
+        Debug.Log("Player Health" + CurrentHealth);
     }
 
     public void Spawn()
@@ -85,6 +87,8 @@ public class Player : MonoBehaviour
         if (damageTextbox is not null)
             damageTextbox.text = "";
         animator.SetBool("IsDead", true);
+        SpawningSystem.Instance.ClearEnemies();
+        HUDManager.Instance.resetPanel.SetActive(true);
     }
 
     private void UpdateHealthbar()

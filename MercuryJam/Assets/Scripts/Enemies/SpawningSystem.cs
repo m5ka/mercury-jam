@@ -7,6 +7,7 @@ using UnityEngine;
 public class SpawningSystem : Singleton<SpawningSystem>
 {
     public int EnemyCount => _enemyCount;
+    public List<GameObject> currentEnemies = new List<GameObject>();
 
     [BoxGroup("Enemies"), LabelText("Types")] public List<GameObject> enemyTypes;
     [BoxGroup("Enemies"), LabelText("Maximum number")] public int maxEnemies = 5;
@@ -28,16 +29,16 @@ public class SpawningSystem : Singleton<SpawningSystem>
                 int chosenEnemy = Random.Range(0,enemyTypes.Count);
                 if (Player.CurrentPlayer.CurrentHealth >0)
                 {
-                    if (Instantiate(enemyTypes[chosenEnemy],
+                    GameObject go = Instantiate(enemyTypes[chosenEnemy],
                     LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
                         .GetComponent<LevelData>().SpawnPoints[
                             Random.Range(0, LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
                                 .GetComponent<LevelData>().SpawnPoints.Count)
                         ].transform.position,
-                    Quaternion.identity))
-                    {
-                        _enemyCount++;
-                    }
+                    Quaternion.identity);
+                    
+                    _enemyCount++;
+                    currentEnemies.Add(go);                    
                     combinedDifficulty = combinedDifficulty + enemyTypes[chosenEnemy].GetComponent<Enemy>().difficulty;
                 }
             }
@@ -48,6 +49,15 @@ public class SpawningSystem : Singleton<SpawningSystem>
     public void DecreaseCount()
     {
         _enemyCount--;
+    }
+
+    public void ClearEnemies()
+    {
+        foreach(GameObject go in currentEnemies)
+        {
+            Destroy(go);
+        }
+        _enemyCount = 0;
     }
 }
 

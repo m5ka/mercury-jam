@@ -21,11 +21,19 @@ public class WaveSystem : Singleton<WaveSystem>
         waveDifficulty = (int)Math.Ceiling(waveDifficulty * 1.2);
         _progessSpawnLevelEnd = true;
         SpawningSystem.Instance.combinedDifficulty = 0;
+        Player.CurrentPlayer.HealPlayer(2);
+    }
+
+    public void ResetWave()
+    {
+        Player.CurrentPlayer.Spawn();
+        SpawningSystem.Instance.combinedDifficulty = 0;
+        HUDManager.Instance.resetPanel.SetActive(false);
     }
 
     public void FixedUpdate()
     {
-        if (SpawningSystem.Instance.EnemyCount == 0 && SpawningSystem.Instance.combinedDifficulty == waveDifficulty)
+        if (SpawningSystem.Instance.EnemyCount == 0 && SpawningSystem.Instance.combinedDifficulty == waveDifficulty && !Player.CurrentPlayer.Dead)
         {
             if (_progessSpawnLevelEnd)
             {

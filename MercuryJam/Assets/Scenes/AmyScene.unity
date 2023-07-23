@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWave: 1
-  waveDifficulty: 3
+  waveDifficulty: 1
   nextLevelTriggerObject: {fileID: 1781300719300443085, guid: dc318be1758899bf49b8019247867536, type: 3}
 --- !u!114 &554307673
 MonoBehaviour:
@@ -436,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 1501434699}
+  healthText: {fileID: 0}
 --- !u!1 &572254746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5498542703607441567, guid: 2fd3a46b313b6c048806f33b0a7fa9f2, type: 3}
@@ -849,6 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7615652f3bd1b48cb6941b2fe4bbc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1162675993}
   damageTextbox: {fileID: 0}
   maxHealth: 10
 --- !u!1 &1501434697
