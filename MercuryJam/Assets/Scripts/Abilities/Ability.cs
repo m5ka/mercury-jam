@@ -19,6 +19,7 @@ public class Ability : MonoBehaviour
         _startPoint = startPoint;
         _transform.position = _startPoint;
         _direction = direction;
+        SoundManager.Instance.PlayFireball();
     }
 
     public void Awake()
