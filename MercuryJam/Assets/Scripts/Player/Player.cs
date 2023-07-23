@@ -38,8 +38,6 @@ public class Player : MonoBehaviour
     {
         if (!_dead && _currentHealth <= 0)
             Die();
-
-        Debug.Log("Player Health" + CurrentHealth);
     }
 
     public void Spawn()
