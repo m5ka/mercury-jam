@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0.2
-  speed: 7
+  speed: 10
   maxDistance: 24
   damage: 1
 --- !u!135 &7147113125890066534
