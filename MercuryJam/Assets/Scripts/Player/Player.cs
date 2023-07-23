@@ -61,6 +61,12 @@ public class Player : MonoBehaviour
         UpdateHealthbar();
     }
 
+    public void HealPlayer(int heal)
+    {
+        _currentHealth += heal;
+        UpdateHealthbar();
+    }
+
     public void Teleport(Vector3 position)
     {
         _characterController.enabled = false;
