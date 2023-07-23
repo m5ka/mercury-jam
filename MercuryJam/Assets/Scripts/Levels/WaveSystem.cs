@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ using UnityEngine;
 public class WaveSystem : Singleton<WaveSystem>
 {
     [BoxGroup("Wave"), LabelText("Current")] public int currentWave = 1;
-    [BoxGroup("Wave"), LabelText("Score")] public int waveScore = 10;
+    [BoxGroup("Wave"), LabelText("WaveDifficulty")] public int waveDifficulty = 3;
 
     [BoxGroup("Next Level"), LabelText("Trigger Object")] public GameObject nextLevelTriggerObject;
 
@@ -17,13 +18,16 @@ public class WaveSystem : Singleton<WaveSystem>
     public void NextWave()
     {
         currentWave++;
-        waveScore = (int)Math.Ceiling(waveScore * 1.2);
+        waveDifficulty = (int)Math.Ceiling(waveDifficulty * 1.2);
         _progessSpawnLevelEnd = true;
+        SpawningSystem.Instance.combinedDifficulty = 0;
     }
 
     public void FixedUpdate()
     {
-        if (SpawningSystem.Instance.EnemyCount == 0 && SpawningSystem.Instance.enemiesScoreThisWave == waveScore)
+        Debug.Log("WaveDifficulty: " + waveDifficulty);
+
+        if (SpawningSystem.Instance.EnemyCount == 0 && SpawningSystem.Instance.combinedDifficulty == waveDifficulty)
         {
             if (_progessSpawnLevelEnd)
             {
