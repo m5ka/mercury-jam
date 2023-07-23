@@ -21,9 +21,7 @@ public class EnemyStalking : MonoBehaviour
     
     public void FixedUpdate()
     {
-        if (Player.CurrentPlayer is null)
-            return;
-        if (enemy.Dead)
+        if (Player.CurrentPlayer is null || Player.CurrentPlayer.Dead || enemy.Dead)
             return;
         
         var playerPosition = new Vector3(Player.CurrentPlayer.Position.x, 0, Player.CurrentPlayer.Position.z);

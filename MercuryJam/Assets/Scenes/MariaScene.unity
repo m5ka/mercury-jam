@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 340136181}
   - component: {fileID: 340136180}
   - component: {fileID: 340136179}
-  - component: {fileID: 340136178}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -143,29 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &340136178
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340136177}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.63
-  m_Height: 2.6
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.3, z: 0}
 --- !u!143 &340136179
 CharacterController:
   m_ObjectHideFlags: 0
@@ -219,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7615652f3bd1b48cb6941b2fe4bbc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1623592631}
   damageTextbox: {fileID: 1454874030}
   maxHealth: 10
 --- !u!4 &340136182
@@ -287,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWave: 1
-  waveScore: 10
+  waveDifficulty: 3
   nextLevelTriggerObject: {fileID: 1781300719300443085, guid: dc318be1758899bf49b8019247867536, type: 3}
 --- !u!114 &620033020
 MonoBehaviour:
@@ -304,7 +281,7 @@ MonoBehaviour:
   enemyTypes:
   - {fileID: 4404186670737837750, guid: fad72a2bc692892e68e3020a7a941395, type: 3}
   maxEnemies: 3
-  enemiesScoreThisWave: 3
+  combinedDifficulty: 0
 --- !u!4 &620033021
 Transform:
   m_ObjectHideFlags: 0
@@ -597,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4101026667053075764, guid: e26e40334452e294ba74e2848b385ff7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4101026667053075764, guid: e26e40334452e294ba74e2848b385ff7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -689,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 111864007930421697, guid: 2fd3a46b313b6c048806f33b0a7fa9f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 111864007930421697, guid: 2fd3a46b313b6c048806f33b0a7fa9f2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -926,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5582893242305636550, guid: c6d013bc5ed743147a1bc6b0ad4ea544, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5582893242305636550, guid: c6d013bc5ed743147a1bc6b0ad4ea544, type: 3}
       propertyPath: m_LocalPosition.z
