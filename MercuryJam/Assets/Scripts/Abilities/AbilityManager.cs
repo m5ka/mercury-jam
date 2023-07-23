@@ -32,13 +32,11 @@ public class AbilityManager : MonoBehaviour
     public void Update()
     {
         if (_delayStarted)
-        {
-            playerAnimator.SetBool("IsHitting", false);
             return;
-        }
-        
+
         if (_cooldown > 0f)
         {
+            playerAnimator.SetBool("IsHitting", false);
             _cooldownElapsed += Time.deltaTime;
             if (_cooldownElapsed > _cooldown)
                 _cooldown = 0f;
