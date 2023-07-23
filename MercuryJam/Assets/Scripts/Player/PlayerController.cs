@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
+        if (Player.CurrentPlayer is null || Player.CurrentPlayer.Dead)
+            return;
+        
         var direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         direction.Normalize();
         _controller.Move(direction * (movementSpeed * Time.deltaTime));

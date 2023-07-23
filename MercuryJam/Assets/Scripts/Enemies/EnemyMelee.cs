@@ -22,10 +22,9 @@ public class EnemyMelee : MonoBehaviour
     
     public void Update()
     {
-        if (Player.CurrentPlayer is null)
+        if (Player.CurrentPlayer is null || Player.CurrentPlayer.Dead || enemy.Dead)
             return;
-        if (enemy.Dead)
-            return;
+        
         if (_isCooldown)
         {
             _cooldownElapsed += Time.deltaTime;
