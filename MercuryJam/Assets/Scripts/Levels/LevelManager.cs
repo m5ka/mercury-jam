@@ -11,6 +11,14 @@ public class LevelManager : Singleton<LevelManager>
     [BoxGroup("Levels"), LabelText("Current")] public int currentLevel;
     private int nextLevel;
 
+    public int LevelsBeat => _levelsBeat;
+    private int _levelsBeat = 0;
+
+    private void Start()
+    {
+        NewLevel();
+    }
+
     public void NewLevel()
     {
         WaveSystem.Instance.NextWave();
@@ -21,7 +29,10 @@ public class LevelManager : Singleton<LevelManager>
         while (nextLevel == currentLevel);
         currentLevel = nextLevel;
 
+        _levelsBeat++;
+
         UpdatePlayerPosForLevelChange();
+        HUDManager.Instance.UpdateLevelText();
     }
 
     public void UpdatePlayerPosForLevelChange()
