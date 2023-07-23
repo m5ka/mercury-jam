@@ -22,12 +22,15 @@ public class LevelManager : Singleton<LevelManager>
     public void NewLevel()
     {
         WaveSystem.Instance.NextWave();
-        do
+        if (levels.Count > 1)
         {
-            nextLevel = Random.Range(0, levels.Count);
+            do
+            {
+                nextLevel = Random.Range(0, levels.Count);
+            } while (nextLevel == currentLevel);
+
+            currentLevel = nextLevel;
         }
-        while (nextLevel == currentLevel);
-        currentLevel = nextLevel;
 
         _levelsBeat++;
 
