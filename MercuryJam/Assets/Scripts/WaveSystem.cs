@@ -27,6 +27,7 @@ public class WaveSystem : Singleton<WaveSystem>
             {
                 progessSpawnLevelEnd = false;
                 Instantiate(NextLevelObject, LevelManager.Instance.Levels[LevelManager.Instance.currentLevel].GetComponent<LevelData>().PlayerSpawnPoint.transform.position, Quaternion.identity);
+                Debug.Log("Progress");
             }
         }
     }

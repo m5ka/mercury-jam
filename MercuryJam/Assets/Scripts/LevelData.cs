@@ -6,4 +6,5 @@ public class LevelData : MonoBehaviour
 {
     public List<GameObject> SpawnPoints;
     public GameObject PlayerSpawnPoint;
+    public GameObject LevelCamera;
 }

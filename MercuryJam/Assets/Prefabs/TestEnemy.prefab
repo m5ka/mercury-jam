@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 21687602758597835}
   - component: {fileID: 351914316285561281}
   - component: {fileID: -7305730099958291219}
-  - component: {fileID: -3928252794739752910}
+  - component: {fileID: 1593878957074208654}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413cd53cb87b67744b594b03c8c5a724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3928252794739752910
+--- !u!114 &1593878957074208654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,7 +173,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8673996232789037967}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c76f49b5a174d024d9097607c1d06c6e, type: 3}
+  m_Script: {fileID: 11500000, guid: a21625f0402bf8b1ea1969a70a500306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  damageTextbox: {fileID: 0}
+  maxHealth: 0
   difficulty: 1
