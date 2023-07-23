@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public static Player CurrentPlayer;
     
     public Vector3 Position => _transform.position;
+    public int CurrentHealth => _currentHealth;
 
     public TextMeshPro damageTextbox;
     public int maxHealth = 10;
