@@ -46,11 +46,6 @@ public class SpawnManager : Singleton<SpawnManager>
         }
     }
 
-    public void DecreaseCount()
-    {
-        _enemyCount--;
-    }
-
     public void RemoveEnemy(GameObject enemyObject)
     {
         _currentEnemies.Remove(enemyObject);
