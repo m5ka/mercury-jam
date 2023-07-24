@@ -9,11 +9,13 @@ public class PauseMenu : MonoBehaviour
 {
     [BoxGroup("Buttons"), LabelText("Unpause")] public Button unpauseButton;
     [BoxGroup("Buttons"), LabelText("Settings")] public Button optionsButton;
+    [BoxGroup("Buttons"), LabelText("Quit")] public Button quitButton;
 
     private void Start()
     {
         unpauseButton.onClick.AddListener(UnpauseTaskOnClick);
         optionsButton.onClick.AddListener(OptionsTaskOnClick);
+        quitButton.onClick.AddListener(QuitTaskOnClick);
     }
 
     private void Update()
@@ -35,5 +37,10 @@ public class PauseMenu : MonoBehaviour
     {
         HUDManager.Instance.OpenOptionsMenu();
         HUDManager.Instance.ClosePauseMenu();
+    }
+
+    private void QuitTaskOnClick()
+    {
+        Application.Quit();
     }
 }
