@@ -6,15 +6,14 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public Button StartButton;
+    public Button startButton;
 
     private void Start()
     {
-        Button startButton = StartButton.GetComponent<Button>();
         startButton.onClick.AddListener(TaskOnClick);
     }
 
-    void TaskOnClick()
+    private void TaskOnClick()
     {
         SceneManager.LoadScene("MainScene");
     }
