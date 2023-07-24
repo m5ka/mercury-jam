@@ -34,6 +34,7 @@ public class PauseMenu : MonoBehaviour
 
     void OptionsTaskOnClick()
     {
-
+        HUDManager.Instance.OpenOptionsMenu();
+        HUDManager.Instance.ClosePauseMenu();
     }
 }

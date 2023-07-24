@@ -9,11 +9,13 @@ public class HUDManager : Singleton<HUDManager>
     public TMP_Text levelText;
     public GameObject resetPanel;
     public GameObject pauseMenu;
+    public GameObject optionsMenu;
     
     private void Start()
     {
         resetPanel.SetActive(false);
         pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
     }
 
     public void OpenPauseMenu()
@@ -23,6 +25,16 @@ public class HUDManager : Singleton<HUDManager>
     public void ClosePauseMenu()
     {
         pauseMenu.SetActive(false);
+    }
+
+    public void OpenOptionsMenu()
+    {
+        optionsMenu.SetActive(true);
+    }
+
+    public void CloseOptionsMenu()
+    {
+        optionsMenu.SetActive(false);
     }
 
     public void UpdateLevelText()
