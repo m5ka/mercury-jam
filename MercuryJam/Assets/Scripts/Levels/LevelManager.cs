@@ -60,4 +60,24 @@ public class LevelManager : Singleton<LevelManager>
         _levelsBeat = 0;
         NewLevel();
     }
+    
+    private void Start()
+    {
+        BeginGame();
+    }
+
+    private void BeginGame()
+    {
+        NewLevel();
+    }
+    
+    private void UpdatePlayerPosForLevelChange()
+    {
+        Player.CurrentPlayer.Teleport(
+            new Vector3(
+                levels[_currentLevelIndex].GetComponent<Level>().playerSpawnPoint.position.x,
+                Player.CurrentPlayer.Position.y,
+                levels[_currentLevelIndex].GetComponent<Level>().playerSpawnPoint.position.z));
+        CameraManager.Instance.Teleport(levels[_currentLevelIndex].GetComponent<Level>().cameraLocation.position);
+    }
 }
