@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 316975772154173379}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -419,7 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3519796501018336908}
   - component: {fileID: 6656640778348131612}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SouthWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
