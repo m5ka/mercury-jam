@@ -8,10 +8,21 @@ public class HUDManager : Singleton<HUDManager>
 {
     public TMP_Text levelText;
     public GameObject resetPanel;
+    public GameObject pauseMenu;
     
     private void Start()
     {
         resetPanel.SetActive(false);
+        pauseMenu.SetActive(false);
+    }
+
+    public void OpenPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+    }
+    public void ClosePauseMenu()
+    {
+        pauseMenu.SetActive(false);
     }
 
     public void UpdateLevelText()
