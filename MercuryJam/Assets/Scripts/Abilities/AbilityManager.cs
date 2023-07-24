@@ -14,17 +14,17 @@ public class AbilityManager : MonoBehaviour
     [BoxGroup("Ability config"), LabelText("Delay")] public float abilityDelay = 0.4f;
     
     [BoxGroup("Player"), LabelText("Animator")] public Animator playerAnimator;
-    [BoxGroup("Player"), LabelText("Transform")] public Transform playerTransform;
+    [BoxGroup("Player"), LabelText("Rotation")] public Transform playerRotation;
 
     private Vector3 _forward;
-    private bool _delayStarted = false;
+    private bool _delayStarted;
     private float _cooldown;
     private float _cooldownElapsed;
     
     private IEnumerator SpawnAbility()
     {
         yield return new WaitForSeconds(abilityDelay);
-        var ability = Instantiate(abilities[currentAbility], transform);
+        var ability = Instantiate(abilities[currentAbility]);
         ability.Initiate(abilityLocation.position, _forward);
         _cooldown = ability.cooldown;
         _delayStarted = false;
@@ -48,7 +48,7 @@ public class AbilityManager : MonoBehaviour
         if (Input.GetButtonDown("Shoot"))
         {
             playerAnimator.SetBool("IsHitting", true);
-            _forward = playerTransform.forward;
+            _forward = playerRotation.forward;
             _delayStarted = true;
             _cooldownElapsed = 0f;
             StartCoroutine(SpawnAbility());
