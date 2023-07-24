@@ -20,6 +20,7 @@ public class Ability : MonoBehaviour
     {
         _startPoint = startPoint;
         _transform.position = _startPoint;
+        _transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
         _direction = direction;
         SoundManager.Instance.PlayAbilitySound(AbilitySound);
     }
@@ -31,7 +32,7 @@ public class Ability : MonoBehaviour
 
     public void Update()
     {
-        _transform.Translate(_direction * (speed * Time.deltaTime));
+        _transform.position += _direction * (speed * Time.deltaTime);
         if (Vector3.Distance(_transform.position, _startPoint) >= maxDistance)
         {
             Destroy(gameObject);
