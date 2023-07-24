@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Ability : MonoBehaviour
 {
+    public AudioSource abilitySound;
     public float cooldown = 2.0f;
     public float speed = 7.0f;
     public float maxDistance = 24.0f;
@@ -14,15 +15,13 @@ public class Ability : MonoBehaviour
     private Vector3 _startPoint;
     private Vector3 _direction;
 
-    public AudioSource AbilitySound;
-
     public void Initiate(Vector3 startPoint, Vector3 direction)
     {
         _startPoint = startPoint;
         _transform.position = _startPoint;
         _transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
         _direction = direction;
-        SoundManager.Instance.PlayAbilitySound(AbilitySound);
+        SoundManager.Instance.PlayAbilitySound(abilitySound);
     }
 
     public void Awake()

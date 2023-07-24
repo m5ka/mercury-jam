@@ -271,11 +271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06206e5489a1b778289c0c2d65a4b572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilitySound: {fileID: 8326271348274413018}
   cooldown: 0.2
   speed: 10
   maxDistance: 24
   damage: 1
-  AbilitySound: {fileID: 8326271348274413018}
 --- !u!135 &7147113125890066534
 SphereCollider:
   m_ObjectHideFlags: 0
