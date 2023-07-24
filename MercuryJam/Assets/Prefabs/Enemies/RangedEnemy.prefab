@@ -311,7 +311,7 @@ MonoBehaviour:
   projectileSpeed: 5
   projectileDamage: 2
   spawnProjectileDelay: 0.8
-  cooldown: 2
+  cooldown: 4
 --- !u!114 &6633174411693043690
 MonoBehaviour:
   m_ObjectHideFlags: 0

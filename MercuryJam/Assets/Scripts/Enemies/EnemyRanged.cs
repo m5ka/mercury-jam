@@ -27,12 +27,11 @@ public class EnemyRanged : MonoBehaviour
 
         if (_isCooldown)
         {
+            enemyAnimator.SetBool("IsHitting", false);
+            
             _cooldownElapsed += Time.fixedDeltaTime;
             if (_cooldownElapsed >= cooldown)
-            {
-                enemyAnimator.SetBool("IsHitting", false);
                 _isCooldown = false;
-            }
 
             return;
         }
