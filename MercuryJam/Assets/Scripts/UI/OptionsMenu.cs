@@ -1,65 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[HideMonoScript]
 public class OptionsMenu : MonoBehaviour
 {
-    public Button BackButton;
-    public Button MuteMusic;
-    public Button MuteSound;
+    [BoxGroup("Buttons"), LabelText("Back")] public Button backButton;
+    [BoxGroup("Buttons"), LabelText("Mute Music")] public Button muteMusic;
+    [BoxGroup("Buttons"), LabelText("Mute Sounds")] public Button muteSound;
+    [BoxGroup("Labels"), LabelText("Mute Music")] public TMP_Text musicText;
+    [BoxGroup("Labels"), LabelText("Mute Sounds")] public TMP_Text soundText;
 
-    public TMP_Text MusicText;
-    public TMP_Text SoundText;
-
-    public void Start()
+    private void Start()
     {
-        Button backButton = BackButton.GetComponent<Button>();
-        Button muteMusic = MuteMusic.GetComponent<Button>();
-        Button muteSound = MuteSound.GetComponent<Button>();
-
         backButton.onClick.AddListener(BackButtonTaskOnClick);
         muteMusic.onClick.AddListener(MuteMusicButtonTaskOnClick);
         muteSound.onClick.AddListener(MuteSoundButtonTaskOnClick);
     }
 
-    void BackButtonTaskOnClick()
+    private void BackButtonTaskOnClick()
     {
         HUDManager.Instance.OpenPauseMenu();
         HUDManager.Instance.CloseOptionsMenu();
     }
 
-    void MuteMusicButtonTaskOnClick()
+    private void MuteMusicButtonTaskOnClick()
     {
         if (SoundManager.Instance.MusicMuted == false)
         {
             SoundManager.Instance.musicVolume = 0;
             SoundManager.Instance.UpdateBackgroundMusicVolume();
-            MusicText.text = "unmute music";
+            musicText.text = "Unmute Music";
             SoundManager.Instance.MusicMuted = true;
         }
         else
         {
             SoundManager.Instance.musicVolume = SoundManager.Instance.DefaultMusicVolume;
             SoundManager.Instance.UpdateBackgroundMusicVolume();
-            MusicText.text = "mute music";
+            musicText.text = "Mute Music";
             SoundManager.Instance.MusicMuted = false;
         }
     }
 
-    void MuteSoundButtonTaskOnClick()
+    private void MuteSoundButtonTaskOnClick()
     {
         if(SoundManager.Instance.SoundMuted == false)
         {
             SoundManager.Instance.soundVolume = 0;
-            SoundText.text = "unmute sounds";
+            soundText.text = "Unmute Sounds";
             SoundManager.Instance.SoundMuted = true;
         }
         else
         {
             SoundManager.Instance.soundVolume = SoundManager.Instance.DefaultSoundVolume;
-            SoundText.text = "mute sounds";
+            soundText.text = "Mute Sounds";
             SoundManager.Instance.SoundMuted = false;
         }
     }
