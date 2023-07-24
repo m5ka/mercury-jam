@@ -146,6 +146,7 @@ MonoBehaviour:
   speed: 10
   maxDistance: 24
   damage: 1
+  AbilitySound: {fileID: 0}
 --- !u!135 &7147113125890066534
 SphereCollider:
   m_ObjectHideFlags: 0

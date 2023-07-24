@@ -14,12 +14,14 @@ public class Ability : MonoBehaviour
     private Vector3 _startPoint;
     private Vector3 _direction;
 
+    public AudioSource AbilitySound;
+
     public void Initiate(Vector3 startPoint, Vector3 direction)
     {
         _startPoint = startPoint;
         _transform.position = _startPoint;
         _direction = direction;
-        SoundManager.Instance.PlayFireball();
+        SoundManager.Instance.PlayAbilitySound(AbilitySound);
     }
 
     public void Awake()

@@ -8,16 +8,15 @@ public class SoundManager : Singleton<SoundManager>
     public float SoundVolume = 0.3f;
 
     public AudioSource BackgroundMusic;
-    public AudioSource Fireball;
     void Start()
     {
         BackgroundMusic.volume = MusicVolume;
         BackgroundMusic.Play();
     }
 
-    public void PlayFireball()
+    public void PlayAbilitySound(AudioSource AbilitySound)
     {
-        Fireball.volume = SoundVolume;
-        Fireball.Play();
+        AbilitySound.volume = SoundVolume;
+        AbilitySound.Play();
     }
 }
