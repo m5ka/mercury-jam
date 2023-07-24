@@ -17,14 +17,14 @@ public class Enemy : MonoBehaviour
     private bool _dead;
     private int _currentHealth;
 
-    public void Start()
+    private void Start()
     {
         _collider = GetComponent<Collider>();
         _currentHealth = maxHealth;
         UpdateHealthbar();
     }
-
-    public void OnCollisionEnter(Collision other)
+    
+    private void OnCollisionEnter(Collision other)
     {
         if (_dead)
             return;
