@@ -1,38 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
+[HideMonoScript]
 public class PauseMenu : MonoBehaviour
 {
-    public Button UnpauseButton;
-    public Button OptionsButton;
+    [BoxGroup("Buttons"), LabelText("Unpause")] public Button unpauseButton;
+    [BoxGroup("Buttons"), LabelText("Settings")] public Button optionsButton;
 
     private void Start()
     {
-        Button unpauseButon = UnpauseButton.GetComponent<Button>();
-        Button optionsButton = OptionsButton.GetComponent<Button>();
-
-        unpauseButon.onClick.AddListener(UnpauseTaskOnClick);
+        unpauseButton.onClick.AddListener(UnpauseTaskOnClick);
         optionsButton.onClick.AddListener(OptionsTaskOnClick);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetButtonDown("Pause"))
         {
             GameManager.Instance.Pause();
             HUDManager.Instance.OpenPauseMenu();
         }
     }
 
-    void UnpauseTaskOnClick()
+    private void UnpauseTaskOnClick()
     {
         GameManager.Instance.Unpause();
         HUDManager.Instance.ClosePauseMenu();
     }
 
-    void OptionsTaskOnClick()
+    private void OptionsTaskOnClick()
     {
         HUDManager.Instance.OpenOptionsMenu();
         HUDManager.Instance.ClosePauseMenu();
