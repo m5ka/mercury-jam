@@ -38,7 +38,7 @@ public class WaveManager : Singleton<WaveManager>
                 _progessSpawnLevelEnd = false;
                 Instantiate(
                     nextLevelTriggerObject,
-                    LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
+                    LevelManager.Instance.levels[LevelManager.Instance.CurrentLevelIndex]
                         .GetComponent<Level>().playerSpawnPoint.position,
                     Quaternion.identity);
             }

@@ -7,22 +7,14 @@ using UnityEngine;
 [HideMonoScript]
 public class LevelManager : Singleton<LevelManager>
 {
+    public int CurrentLevelIndex => _currentLevelIndex;
+    public int LevelsBeaten => _levelsBeaten;
+    
     [BoxGroup("Levels"), LabelText("All")] public List<GameObject> levels;
-    [BoxGroup("Levels"), LabelText("Current")] public int currentLevel;
-    private int nextLevel;
-
-    public int LevelsBeat => _levelsBeat;
-    private int _levelsBeat = 0;
-
-    private void Start()
-    {
-        BeginGame();
-    }
-
-    private void BeginGame()
-    {
-        NewLevel();
-    }
+    
+    private int _levelsBeaten = 0;
+    private int _nextLevelIndex;
+    private int _currentLevelIndex = 0;
 
     public void NewLevel()
     {
@@ -31,33 +23,21 @@ public class LevelManager : Singleton<LevelManager>
         {
             do
             {
-                nextLevel = Random.Range(0, levels.Count);
-            } while (nextLevel == currentLevel);
+                _nextLevelIndex = Random.Range(0, levels.Count);
+            } while (_nextLevelIndex == _currentLevelIndex);
 
-            currentLevel = nextLevel;
+            _currentLevelIndex = _nextLevelIndex;
         }
 
-        _levelsBeat++;
+        _levelsBeaten++;
 
         UpdatePlayerPosForLevelChange();
         HUDManager.Instance.UpdateLevelText();
     }
 
-    public void UpdatePlayerPosForLevelChange()
-    {
-        Player.CurrentPlayer.Teleport(
-            new Vector3(
-                levels[currentLevel].GetComponent<Level>().playerSpawnPoint.position.x,
-                Player.CurrentPlayer.Position.y,
-                levels[currentLevel].GetComponent<Level>().playerSpawnPoint.position.z));
-        CameraManager.Instance.TeleportCamera(
-            CameraManager.Instance.mainCamera,
-            levels[currentLevel].GetComponent<Level>().cameraLocation.position);
-    }
-
     public void ResetGame()
     {
-        _levelsBeat = 0;
+        _levelsBeaten = 0;
         NewLevel();
     }
     

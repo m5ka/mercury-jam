@@ -36,22 +36,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitAndDestroy()
-    {
-        yield return new WaitForSeconds(4.0f);
-        Destroy(gameObject);
-    }
-
     private void Die()
     {
         _dead = true;
         _collider.enabled = false;
         animator.SetBool("IsDead", true);
         damageTextbox.text = "";
-        SpawnManager spawn = SpawnManager.Instance;
-        spawn.currentEnemies.Remove(gameObject);
-        spawn.DecreaseCount();
-        StartCoroutine(WaitAndDestroy());
+        SpawnManager.Instance.RemoveEnemy(gameObject);
+        Destroy(gameObject, 3.0f);
     }
 
     private void TakeDamage(int damage)
