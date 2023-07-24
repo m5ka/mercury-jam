@@ -80,6 +80,8 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        SoundManager.Instance.PlayPlayerDeathSound();
+
         _dead = true;
         _characterController.enabled = false;
         if (damageTextbox is not null)

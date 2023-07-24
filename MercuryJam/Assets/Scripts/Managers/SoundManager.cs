@@ -8,6 +8,7 @@ public class SoundManager : Singleton<SoundManager>
     public float SoundVolume = 0.3f;
 
     public AudioSource BackgroundMusic;
+    public AudioSource PlayerDeath;
     void Start()
     {
         BackgroundMusic.volume = MusicVolume;
@@ -18,5 +19,11 @@ public class SoundManager : Singleton<SoundManager>
     {
         AbilitySound.volume = SoundVolume;
         AbilitySound.Play();
+    }
+
+    public void PlayPlayerDeathSound()
+    {
+        PlayerDeath.volume = SoundVolume;
+        PlayerDeath.Play();
     }
 }

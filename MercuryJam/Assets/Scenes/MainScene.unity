@@ -219,6 +219,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 620033017}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: ResetGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &215761173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -996,7 +1008,6 @@ MonoBehaviour:
   MusicVolume: 0.2
   SoundVolume: 0.3
   BackgroundMusic: {fileID: 330484646}
-  Fireball: {fileID: 993352246}
 --- !u!114 &620033023
 MonoBehaviour:
   m_ObjectHideFlags: 0
