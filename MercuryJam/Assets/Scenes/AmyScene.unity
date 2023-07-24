@@ -905,7 +905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b41804c08f6ad249a31586e8ae02a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentEnemies: []
   enemyTypes:
   - {fileID: 4404186670737837750, guid: fad72a2bc692892e68e3020a7a941395, type: 3}
   maxEnemies: 5
@@ -955,7 +954,6 @@ MonoBehaviour:
   - {fileID: 445025152}
   - {fileID: 1625315430}
   - {fileID: 1052450988}
-  currentLevel: 0
 --- !u!114 &554307674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,6 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 963194227}
+  mainLight: {fileID: 0}
 --- !u!114 &554307675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,10 +996,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fea57cdae5dca4cbe6d3c49a6d3d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicVolume: 0.2
-  SoundVolume: 0.3
+  DefaultMusicVolume: 0.2
+  DefaultSoundVolume: 0.3
+  musicVolume: 0
+  soundVolume: 0
   BackgroundMusic: {fileID: 1943823751}
   PlayerDeath: {fileID: 1209688746}
+  MusicMuted: 0
+  SoundMuted: 0
 --- !u!114 &554307677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,6 +1045,8 @@ MonoBehaviour:
   BackButton: {fileID: 1402729786}
   MuteMusic: {fileID: 1720185878}
   MuteSound: {fileID: 1308556696}
+  MusicText: {fileID: 42015900}
+  SoundText: {fileID: 1767693543}
 --- !u!1 &572254746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5498542703607441567, guid: 2fd3a46b313b6c048806f33b0a7fa9f2, type: 3}
@@ -2227,7 +2232,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -60}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308556696
 MonoBehaviour:
@@ -2397,7 +2402,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1402729786
 MonoBehaviour:
@@ -3291,7 +3296,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1720185878
 MonoBehaviour:
