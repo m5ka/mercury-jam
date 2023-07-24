@@ -12,7 +12,7 @@ public class SpawnManager : Singleton<SpawnManager>
     [BoxGroup("Enemies"), LabelText("Maximum number")] public int maxEnemies = 5;
     [BoxGroup("Enemies"), LabelText("CombinedDifficulty")] public int combinedDifficulty = 0;
 
-    private List<GameObject> _currentEnemies;
+    private List<GameObject> _currentEnemies = new();
     private int _enemyCount = 0;
     
     public void Start()
@@ -39,7 +39,7 @@ public class SpawnManager : Singleton<SpawnManager>
                     
                     _enemyCount++;
                     _currentEnemies.Add(go);                    
-                    combinedDifficulty = combinedDifficulty + enemyTypes[chosenEnemy].GetComponent<Enemy>().difficulty;
+                    combinedDifficulty += enemyTypes[chosenEnemy].GetComponent<Enemy>().difficulty;
                 }
             }
             yield return new WaitForSeconds(1.0f);
