@@ -53,9 +53,9 @@ public class SpawnManager : Singleton<SpawnManager>
 
     public void ClearEnemies()
     {
-        foreach(GameObject go in currentEnemies)
+        foreach(GameObject gameObject in currentEnemies)
         {
-            Destroy(go);
+            Destroy(gameObject);
         }
         _enemyCount = 0;
     }

@@ -54,4 +54,10 @@ public class LevelManager : Singleton<LevelManager>
             CameraManager.Instance.mainCamera,
             levels[currentLevel].GetComponent<LevelData>().LevelCamera.transform.position);
     }
+
+    public void ResetGame()
+    {
+        _levelsBeat = 0;
+        NewLevel();
+    }
 }
