@@ -203,6 +203,38 @@ Transform:
   m_Father: {fileID: 1641464417077471418}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5532043248226612016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1944905151268940641}
+  m_Layer: 0
+  m_Name: EnemyRotation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1944905151268940641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5532043248226612016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3656941781909342568}
+  m_Father: {fileID: 1641464417077471418}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8999573762493742934
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,9 +268,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3656941781909342568}
   - {fileID: 4066594727578948089}
   - {fileID: 1484303407226604911}
+  - {fileID: 1944905151268940641}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -271,7 +303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 986007096720983473}
-  animator: {fileID: 6462543612617579227}
+  enemyAnimator: {fileID: 6462543612617579227}
+  enemyRotation: {fileID: 1944905151268940641}
   enemyProjectilePrefab: {fileID: 4116627348670950720, guid: 918786db37128e62d846bece8fd08491, type: 3}
   enemyProjectileSpawnLocation: {fileID: 1484303407226604911}
   projectileMaxDistance: 24
@@ -291,7 +324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50930a2ac6375a8df95d8f0ce886a3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 6462543612617579227}
+  enemyAnimator: {fileID: 6462543612617579227}
+  enemyRotation: {fileID: 1944905151268940641}
   enemy: {fileID: 986007096720983473}
   minSpeed: 1
   maxSpeed: 1.5
@@ -350,11 +384,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1641464417077471418}
+    m_TransformParent: {fileID: 1944905151268940641}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 926cf0c6602c2a724a1e5773c5cce8ca, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 926cf0c6602c2a724a1e5773c5cce8ca, type: 3}
       propertyPath: m_LocalScale.x
@@ -378,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 926cf0c6602c2a724a1e5773c5cce8ca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 926cf0c6602c2a724a1e5773c5cce8ca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -386,15 +420,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 926cf0c6602c2a724a1e5773c5cce8ca, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 926cf0c6602c2a724a1e5773c5cce8ca, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 926cf0c6602c2a724a1e5773c5cce8ca, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 926cf0c6602c2a724a1e5773c5cce8ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

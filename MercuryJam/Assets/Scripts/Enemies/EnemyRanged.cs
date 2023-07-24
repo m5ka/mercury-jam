@@ -7,7 +7,8 @@ using UnityEngine;
 public class EnemyRanged : MonoBehaviour
 {
     [BoxGroup("Enemy"), LabelText("Object")] public Enemy enemy;
-    [BoxGroup("Enemy"), LabelText("Animator")] public Animator animator;
+    [BoxGroup("Enemy"), LabelText("Animator")] public Animator enemyAnimator;
+    [BoxGroup("Enemy"), LabelText("Rotation")] public Transform enemyRotation;
     [BoxGroup("Projectile"), LabelText("Prefab")] public EnemyProjectile enemyProjectilePrefab;
     [BoxGroup("Projectile"), LabelText("Spawn Location")] public Transform enemyProjectileSpawnLocation;
     [BoxGroup("Projectile"), LabelText("Maximum Distance")] public float projectileMaxDistance = 24.0f;
@@ -16,7 +17,6 @@ public class EnemyRanged : MonoBehaviour
     [BoxGroup("Ability"), LabelText("Delay")] public float spawnProjectileDelay = 0.8f;
     [BoxGroup("Ability"), LabelText("Cooldown")] public float cooldown = 2.0f;
 
-    private Transform _transform;
     private bool _isCooldown;
     private float _cooldownElapsed;
 
@@ -30,22 +30,17 @@ public class EnemyRanged : MonoBehaviour
             _cooldownElapsed += Time.fixedDeltaTime;
             if (_cooldownElapsed >= cooldown)
             {
-                animator.SetBool("IsHitting", false);
+                enemyAnimator.SetBool("IsHitting", false);
                 _isCooldown = false;
             }
 
             return;
         }
         
-        animator.SetBool("IsHitting", true);
+        enemyAnimator.SetBool("IsHitting", true);
         _isCooldown = true;
         _cooldownElapsed = 0.0f;
         StartCoroutine(ShootProjectile());
-    }
-
-    private void Awake()
-    {
-        _transform = GetComponent<Transform>();
     }
 
     private IEnumerator ShootProjectile()
@@ -53,7 +48,7 @@ public class EnemyRanged : MonoBehaviour
         yield return new WaitForSeconds(spawnProjectileDelay);
         Instantiate(enemyProjectilePrefab)
             .Initialize(
-                enemyProjectileSpawnLocation.position, _transform.forward, projectileMaxDistance,
+                enemyProjectileSpawnLocation.position, enemyRotation.forward, projectileMaxDistance,
                 projectileDamage, projectileSpeed);
     }
 }
