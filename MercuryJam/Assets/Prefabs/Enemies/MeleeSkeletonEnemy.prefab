@@ -68,8 +68,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6705847958236844224}
   enemy: {fileID: 5976403708943530639}
-  speed: 5
-  targetDistance: 3
+  minSpeed: 1
+  maxSpeed: 2.5
+  targetDistance: 2
 --- !u!114 &4858303860994628563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6705847958236844224}
   enemy: {fileID: 5976403708943530639}
-  requiredProximity: 3
+  requiredProximity: 2.5
   damageDelay: 0.8
   cooldown: 2
   damage: 1
