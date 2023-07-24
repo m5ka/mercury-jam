@@ -49,12 +49,6 @@ public class Player : MonoBehaviour
         _dead = false;
     }
 
-    public void SpawnAt(Vector3 position)
-    {
-        _transform.position = position;
-        Spawn();
-    }
-
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
