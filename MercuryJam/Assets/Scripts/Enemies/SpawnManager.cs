@@ -50,7 +50,6 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         _currentEnemies.Remove(enemyObject);
         _enemyCount--;
-        Debug.Log("I, " + enemyObject.name + ", have removed myself and the enemy count is now " + _enemyCount);
     }
 
     public void ClearEnemies()
