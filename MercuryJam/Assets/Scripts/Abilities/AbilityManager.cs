@@ -16,6 +16,7 @@ public class AbilityManager : MonoBehaviour
     [BoxGroup("Player"), LabelText("Animator")] public Animator playerAnimator;
     [BoxGroup("Player"), LabelText("Transform")] public Transform playerTransform;
 
+    private Vector3 _forward;
     private bool _delayStarted = false;
     private float _cooldown;
     private float _cooldownElapsed;
@@ -24,7 +25,7 @@ public class AbilityManager : MonoBehaviour
     {
         yield return new WaitForSeconds(abilityDelay);
         var ability = Instantiate(abilities[currentAbility], transform);
-        ability.Initiate(abilityLocation.position, playerTransform.forward);
+        ability.Initiate(abilityLocation.position, _forward);
         _cooldown = ability.cooldown;
         _delayStarted = false;
     }
@@ -47,6 +48,7 @@ public class AbilityManager : MonoBehaviour
         if (Input.GetButtonDown("Shoot"))
         {
             playerAnimator.SetBool("IsHitting", true);
+            _forward = playerTransform.forward;
             _delayStarted = true;
             _cooldownElapsed = 0f;
             StartCoroutine(SpawnAbility());
