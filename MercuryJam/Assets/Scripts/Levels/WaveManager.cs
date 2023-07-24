@@ -41,7 +41,7 @@ public class WaveManager : Singleton<WaveManager>
                 Instantiate(
                     nextLevelTriggerObject,
                     LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
-                        .GetComponent<LevelData>().PlayerSpawnPoint.transform.position,
+                        .GetComponent<Level>().playerSpawnPoint.position,
                     Quaternion.identity);
             }
         }

@@ -47,12 +47,12 @@ public class LevelManager : Singleton<LevelManager>
     {
         Player.CurrentPlayer.Teleport(
             new Vector3(
-                levels[currentLevel].GetComponent<LevelData>().PlayerSpawnPoint.transform.position.x,
+                levels[currentLevel].GetComponent<Level>().playerSpawnPoint.position.x,
                 Player.CurrentPlayer.Position.y,
-                levels[currentLevel].GetComponent<LevelData>().PlayerSpawnPoint.transform.position.z));
+                levels[currentLevel].GetComponent<Level>().playerSpawnPoint.position.z));
         CameraManager.Instance.TeleportCamera(
             CameraManager.Instance.mainCamera,
-            levels[currentLevel].GetComponent<LevelData>().LevelCamera.transform.position);
+            levels[currentLevel].GetComponent<Level>().cameraLocation.position);
     }
 
     public void ResetGame()

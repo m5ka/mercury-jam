@@ -595,15 +595,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033ec8b5c7cc267488fac8ba721572d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPoints:
-  - {fileID: 4448219765538313396}
-  - {fileID: 1121548403763233879}
-  - {fileID: 2049007207264660773}
-  - {fileID: 7949374247490134328}
-  - {fileID: 1322123039297355382}
-  - {fileID: 9095914698785683938}
-  PlayerSpawnPoint: {fileID: 1321098699970380977}
-  LevelCamera: {fileID: 6512188916409775448}
+  enemySpawnPoints:
+  - {fileID: 4120688623598980327}
+  - {fileID: 1971216136980351408}
+  - {fileID: 943549078667553580}
+  - {fileID: 2031951927033076904}
+  - {fileID: 122866941520609069}
+  - {fileID: 171280443326670805}
+  playerSpawnPoint: {fileID: 8529462525295551621}
+  cameraLocation: {fileID: 485251813478163959}
 --- !u!1 &7949374247490134328
 GameObject:
   m_ObjectHideFlags: 0
