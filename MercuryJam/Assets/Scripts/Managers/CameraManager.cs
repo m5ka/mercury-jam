@@ -7,9 +7,11 @@ using UnityEngine;
 public class CameraManager : Singleton<CameraManager>
 {
     public Camera mainCamera;
+    public Light mainLight;
     
-    public void TeleportCamera(Camera camera, Vector3 desiredPosition)
+    public void Teleport(Vector3 position)
     {
-        camera.transform.position = desiredPosition;
+        mainCamera.transform.position = position;
+        mainLight.transform.position = position;
     }
 }

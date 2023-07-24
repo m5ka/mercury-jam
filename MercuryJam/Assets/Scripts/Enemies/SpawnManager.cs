@@ -7,12 +7,12 @@ using UnityEngine;
 public class SpawnManager : Singleton<SpawnManager>
 {
     public int EnemyCount => _enemyCount;
-    public List<GameObject> currentEnemies = new List<GameObject>();
 
     [BoxGroup("Enemies"), LabelText("Types")] public List<GameObject> enemyTypes;
     [BoxGroup("Enemies"), LabelText("Maximum number")] public int maxEnemies = 5;
     [BoxGroup("Enemies"), LabelText("CombinedDifficulty")] public int combinedDifficulty = 0;
 
+    private List<GameObject> _currentEnemies = new();
     private int _enemyCount = 0;
     
     public void Start()
@@ -30,16 +30,16 @@ public class SpawnManager : Singleton<SpawnManager>
                 if (Player.CurrentPlayer.CurrentHealth >0)
                 {
                     GameObject go = Instantiate(enemyTypes[chosenEnemy],
-                    LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
+                    LevelManager.Instance.levels[LevelManager.Instance.CurrentLevelIndex]
                         .GetComponent<Level>().enemySpawnPoints[
-                            Random.Range(0, LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
+                            Random.Range(0, LevelManager.Instance.levels[LevelManager.Instance.CurrentLevelIndex]
                                 .GetComponent<Level>().enemySpawnPoints.Count)
                         ].position,
                     Quaternion.identity);
                     
                     _enemyCount++;
-                    currentEnemies.Add(go);                    
-                    combinedDifficulty = combinedDifficulty + enemyTypes[chosenEnemy].GetComponent<Enemy>().difficulty;
+                    _currentEnemies.Add(go);                    
+                    combinedDifficulty += enemyTypes[chosenEnemy].GetComponent<Enemy>().difficulty;
                 }
             }
             yield return new WaitForSeconds(1.0f);
@@ -51,11 +51,17 @@ public class SpawnManager : Singleton<SpawnManager>
         _enemyCount--;
     }
 
+    public void RemoveEnemy(GameObject enemyObject)
+    {
+        _currentEnemies.Remove(enemyObject);
+        _enemyCount--;
+    }
+
     public void ClearEnemies()
     {
-        foreach(GameObject gameObject in currentEnemies)
+        foreach(var enemyObject in _currentEnemies)
         {
-            Destroy(gameObject);
+            Destroy(enemyObject);
         }
         _enemyCount = 0;
     }
