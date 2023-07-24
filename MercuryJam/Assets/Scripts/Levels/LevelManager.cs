@@ -14,6 +14,11 @@ public class LevelManager : Singleton<LevelManager>
     public int LevelsBeat => _levelsBeat;
     private int _levelsBeat = 0;
 
+    public void Update()
+    {
+        Debug.Log("Current Level:" + LevelsBeat);
+    }
+
     private void Start()
     {
         BeginGame();
