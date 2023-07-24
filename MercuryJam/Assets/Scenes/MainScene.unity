@@ -1640,8 +1640,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 1725708019}
-  - {fileID: 1887480017}
+  - {fileID: 1725708020}
+  - {fileID: 1887480018}
 --- !u!114 &620033019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1654,8 +1654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f2eb182ae3a1a4f80fef2e3e0bb32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveDifficulty: 3
   nextLevelTriggerObject: {fileID: 1781300719300443085, guid: dc318be1758899bf49b8019247867536, type: 3}
+  initialWaveDifficulty: 3
 --- !u!114 &620033020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1669,10 +1669,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes:
-  - {fileID: 4404186670737837750, guid: fad72a2bc692892e68e3020a7a941395, type: 3}
-  - {fileID: 8999573762493742934, guid: cfc5ce828c09f59eca4f1e9f3879f889, type: 3}
+  - {fileID: 5976403708943530639, guid: fad72a2bc692892e68e3020a7a941395, type: 3}
+  - {fileID: 986007096720983473, guid: cfc5ce828c09f59eca4f1e9f3879f889, type: 3}
   maxEnemies: 5
-  combinedDifficulty: 0
 --- !u!4 &620033021
 Transform:
   m_ObjectHideFlags: 0
@@ -3738,11 +3737,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd564a0f5393da0d3b2459d0c8ff8d83, type: 3}
---- !u!1 &1725708019 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7043709077147364688, guid: cd564a0f5393da0d3b2459d0c8ff8d83, type: 3}
+--- !u!114 &1725708020 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8468558996997542766, guid: cd564a0f5393da0d3b2459d0c8ff8d83, type: 3}
   m_PrefabInstance: {fileID: 1725708018}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033ec8b5c7cc267488fac8ba721572d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1887480016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3804,11 +3809,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1b38f94e5888411893001d32f5d2729, type: 3}
---- !u!1 &1887480017 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7043709077147364688, guid: b1b38f94e5888411893001d32f5d2729, type: 3}
+--- !u!114 &1887480018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8468558996997542766, guid: b1b38f94e5888411893001d32f5d2729, type: 3}
   m_PrefabInstance: {fileID: 1887480016}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033ec8b5c7cc267488fac8ba721572d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2075735190
 GameObject:
   m_ObjectHideFlags: 0
