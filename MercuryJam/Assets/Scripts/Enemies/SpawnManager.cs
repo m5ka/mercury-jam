@@ -31,10 +31,10 @@ public class SpawnManager : Singleton<SpawnManager>
                 {
                     GameObject go = Instantiate(enemyTypes[chosenEnemy],
                     LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
-                        .GetComponent<LevelData>().SpawnPoints[
+                        .GetComponent<Level>().enemySpawnPoints[
                             Random.Range(0, LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
-                                .GetComponent<LevelData>().SpawnPoints.Count)
-                        ].transform.position,
+                                .GetComponent<Level>().enemySpawnPoints.Count)
+                        ].position,
                     Quaternion.identity);
                     
                     _enemyCount++;

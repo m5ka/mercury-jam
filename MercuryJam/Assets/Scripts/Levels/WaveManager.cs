@@ -8,7 +8,6 @@ using UnityEngine;
 [HideMonoScript]
 public class WaveManager : Singleton<WaveManager>
 {
-    [BoxGroup("Wave"), LabelText("Current")] public int currentWave = 1;
     [BoxGroup("Wave"), LabelText("WaveDifficulty")] public int waveDifficulty = 3;
 
     [BoxGroup("Next Level"), LabelText("Trigger Object")] public GameObject nextLevelTriggerObject;
@@ -17,7 +16,6 @@ public class WaveManager : Singleton<WaveManager>
 
     public void NextWave()
     {
-        currentWave++;
         waveDifficulty = (int)Math.Ceiling(waveDifficulty * 1.2);
         _progessSpawnLevelEnd = true;
         SpawnManager.Instance.combinedDifficulty = 0;
@@ -41,7 +39,7 @@ public class WaveManager : Singleton<WaveManager>
                 Instantiate(
                     nextLevelTriggerObject,
                     LevelManager.Instance.levels[LevelManager.Instance.currentLevel]
-                        .GetComponent<LevelData>().PlayerSpawnPoint.transform.position,
+                        .GetComponent<Level>().playerSpawnPoint.position,
                     Quaternion.identity);
             }
         }
