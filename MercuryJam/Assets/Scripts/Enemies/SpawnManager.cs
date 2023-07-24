@@ -7,13 +7,14 @@ using UnityEngine;
 public class SpawnManager : Singleton<SpawnManager>
 {
     public int EnemyCount => _enemyCount;
+    public int CombinedDifficulty => _combinedDifficulty;
 
-    [BoxGroup("Enemies"), LabelText("Types")] public List<GameObject> enemyTypes;
+    [BoxGroup("Enemies"), LabelText("Types")] public List<Enemy> enemyTypes;
     [BoxGroup("Enemies"), LabelText("Maximum number")] public int maxEnemies = 5;
-    [BoxGroup("Enemies"), LabelText("CombinedDifficulty")] public int combinedDifficulty = 0;
 
-    private List<GameObject> _currentEnemies = new();
-    private int _enemyCount = 0;
+    private readonly List<GameObject> _currentEnemies = new();
+    private int _combinedDifficulty;
+    private int _enemyCount;
     
     public void Start()
     {
@@ -24,26 +25,30 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         while (true)
         {
-            if (_enemyCount < maxEnemies && combinedDifficulty < WaveManager.Instance.waveDifficulty)
+            if (_enemyCount < maxEnemies && _combinedDifficulty < WaveManager.Instance.WaveDifficulty)
             {
-                int chosenEnemy = Random.Range(0,enemyTypes.Count);
+                Enemy chosenEnemy;
+                do
+                {
+                    chosenEnemy = enemyTypes[Random.Range(0, enemyTypes.Count)];
+                } while (_combinedDifficulty + chosenEnemy.difficulty > WaveManager.Instance.WaveDifficulty);
                 if (Player.CurrentPlayer.CurrentHealth >0)
                 {
-                    GameObject go = Instantiate(enemyTypes[chosenEnemy],
-                    LevelManager.Instance.levels[LevelManager.Instance.CurrentLevelIndex]
-                        .GetComponent<Level>().enemySpawnPoints[
-                            Random.Range(0, LevelManager.Instance.levels[LevelManager.Instance.CurrentLevelIndex]
-                                .GetComponent<Level>().enemySpawnPoints.Count)
-                        ].position,
-                    Quaternion.identity);
-                    
+                    var level = LevelManager.Instance.levels[LevelManager.Instance.CurrentLevelIndex];
+                    var spawnPoint = level.enemySpawnPoints[Random.Range(0, level.enemySpawnPoints.Count)];
+                    var spawnedEnemy = Instantiate(chosenEnemy, spawnPoint.position, Quaternion.identity);
                     _enemyCount++;
-                    _currentEnemies.Add(go);                    
-                    combinedDifficulty += enemyTypes[chosenEnemy].GetComponent<Enemy>().difficulty;
+                    _currentEnemies.Add(spawnedEnemy.gameObject);
+                    _combinedDifficulty += spawnedEnemy.difficulty;
                 }
             }
             yield return new WaitForSeconds(1.0f);
         }
+    }
+
+    public void ResetCombinedDifficulty()
+    {
+        _combinedDifficulty = 0;
     }
 
     public void RemoveEnemy(GameObject enemyObject)

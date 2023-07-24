@@ -10,7 +10,7 @@ public class LevelManager : Singleton<LevelManager>
     public int CurrentLevelIndex => _currentLevelIndex;
     public int LevelsBeaten => _levelsBeaten;
     
-    [BoxGroup("Levels"), LabelText("All")] public List<GameObject> levels;
+    [BoxGroup("Levels"), LabelText("All")] public List<Level> levels;
     
     private int _levelsBeaten = 0;
     private int _nextLevelIndex;
@@ -18,7 +18,6 @@ public class LevelManager : Singleton<LevelManager>
 
     public void NewLevel()
     {
-        WaveManager.Instance.NextWave();
         if (levels.Count > 1)
         {
             do
@@ -55,9 +54,9 @@ public class LevelManager : Singleton<LevelManager>
     {
         Player.CurrentPlayer.Teleport(
             new Vector3(
-                levels[_currentLevelIndex].GetComponent<Level>().playerSpawnPoint.position.x,
+                levels[_currentLevelIndex].playerSpawnPoint.position.x,
                 Player.CurrentPlayer.Position.y,
-                levels[_currentLevelIndex].GetComponent<Level>().playerSpawnPoint.position.z));
-        CameraManager.Instance.Teleport(levels[_currentLevelIndex].GetComponent<Level>().cameraLocation.position);
+                levels[_currentLevelIndex].playerSpawnPoint.position.z));
+        CameraManager.Instance.Teleport(levels[_currentLevelIndex].cameraLocation.position);
     }
 }

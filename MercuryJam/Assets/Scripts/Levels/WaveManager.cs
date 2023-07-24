@@ -8,30 +8,38 @@ using UnityEngine;
 [HideMonoScript]
 public class WaveManager : Singleton<WaveManager>
 {
-    [BoxGroup("Wave"), LabelText("WaveDifficulty")] public int waveDifficulty = 3;
+    public int WaveDifficulty => _waveDifficulty;
+    
+    public GameObject nextLevelTriggerObject;
+    public int initialWaveDifficulty = 3;
 
-    [BoxGroup("Next Level"), LabelText("Trigger Object")] public GameObject nextLevelTriggerObject;
-
+    private int _waveDifficulty;
     private bool _ladderShouldSpawn = true;
 
     public void NextWave()
     {
-        waveDifficulty = (int)Math.Ceiling(waveDifficulty * 1.2);
+        _waveDifficulty = (int)Math.Ceiling(_waveDifficulty * 1.2);
         _ladderShouldSpawn = true;
-        SpawnManager.Instance.combinedDifficulty = 0;
+        SpawnManager.Instance.ResetCombinedDifficulty();
         Player.CurrentPlayer.HealPlayer(2);
     }
 
     public void ResetWave()
     {
+        _waveDifficulty = initialWaveDifficulty;
         Player.CurrentPlayer.Spawn();
-        SpawnManager.Instance.combinedDifficulty = 0;
+        SpawnManager.Instance.ResetCombinedDifficulty();
         HUDManager.Instance.resetPanel.SetActive(false);
     }
 
-    public void FixedUpdate()
+    private void Start()
     {
-        if (SpawnManager.Instance.EnemyCount == 0 && SpawnManager.Instance.combinedDifficulty >= waveDifficulty && !Player.CurrentPlayer.Dead)
+        _waveDifficulty = initialWaveDifficulty;
+    }
+    
+    private void FixedUpdate()
+    {
+        if (SpawnManager.Instance.EnemyCount == 0 && SpawnManager.Instance.CombinedDifficulty >= _waveDifficulty && !Player.CurrentPlayer.Dead)
         {
             if (_ladderShouldSpawn)
             {

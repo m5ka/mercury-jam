@@ -13,6 +13,7 @@ public class TriggerNextLevel : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             LevelManager.Instance.NewLevel();
+            WaveManager.Instance.NextWave();
             Destroy(gameObject);
         }
     }
