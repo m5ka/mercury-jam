@@ -12,12 +12,12 @@ public class WaveManager : Singleton<WaveManager>
 
     [BoxGroup("Next Level"), LabelText("Trigger Object")] public GameObject nextLevelTriggerObject;
 
-    private bool _progessSpawnLevelEnd = true;
+    private bool _ladderShouldSpawn = true;
 
     public void NextWave()
     {
         waveDifficulty = (int)Math.Ceiling(waveDifficulty * 1.2);
-        _progessSpawnLevelEnd = true;
+        _ladderShouldSpawn = true;
         SpawnManager.Instance.combinedDifficulty = 0;
         Player.CurrentPlayer.HealPlayer(2);
     }
@@ -31,11 +31,11 @@ public class WaveManager : Singleton<WaveManager>
 
     public void FixedUpdate()
     {
-        if (SpawnManager.Instance.EnemyCount == 0 && SpawnManager.Instance.combinedDifficulty == waveDifficulty && !Player.CurrentPlayer.Dead)
+        if (SpawnManager.Instance.EnemyCount == 0 && SpawnManager.Instance.combinedDifficulty >= waveDifficulty && !Player.CurrentPlayer.Dead)
         {
-            if (_progessSpawnLevelEnd)
+            if (_ladderShouldSpawn)
             {
-                _progessSpawnLevelEnd = false;
+                _ladderShouldSpawn = false;
                 Instantiate(
                     nextLevelTriggerObject,
                     LevelManager.Instance.levels[LevelManager.Instance.CurrentLevelIndex]
