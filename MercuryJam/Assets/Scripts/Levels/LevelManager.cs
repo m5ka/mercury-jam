@@ -11,7 +11,8 @@ public class LevelManager : Singleton<LevelManager>
     public int LevelsBeaten => _levelsBeaten;
     
     [BoxGroup("Levels"), LabelText("All")] public List<Level> levels;
-    
+
+    private Transform _camera;
     private int _levelsBeaten = 0;
     private int _nextLevelIndex;
     private int _currentLevelIndex = 0;
@@ -42,14 +43,11 @@ public class LevelManager : Singleton<LevelManager>
     
     private void Start()
     {
-        BeginGame();
-    }
-
-    private void BeginGame()
-    {
+        if (Camera.main)
+            _camera = Camera.main.transform;
         NewLevel();
     }
-    
+
     private void UpdatePlayerPosForLevelChange()
     {
         Player.CurrentPlayer.Teleport(
@@ -57,6 +55,7 @@ public class LevelManager : Singleton<LevelManager>
                 levels[_currentLevelIndex].playerSpawnPoint.position.x,
                 Player.CurrentPlayer.Position.y,
                 levels[_currentLevelIndex].playerSpawnPoint.position.z));
-        CameraManager.Instance.Teleport(levels[_currentLevelIndex].cameraLocation.position);
+        if (_camera)
+            _camera.transform.position = levels[_currentLevelIndex].cameraLocation.position;
     }
 }
