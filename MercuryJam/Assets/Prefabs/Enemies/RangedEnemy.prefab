@@ -308,10 +308,10 @@ MonoBehaviour:
   enemyProjectilePrefab: {fileID: 4116627348670950720, guid: 918786db37128e62d846bece8fd08491, type: 3}
   enemyProjectileSpawnLocation: {fileID: 1484303407226604911}
   projectileMaxDistance: 24
-  projectileSpeed: 5
+  projectileSpeed: 7
   projectileDamage: 2
-  spawnProjectileDelay: 0.8
-  cooldown: 4
+  spawnProjectileDelay: 0.2
+  cooldown: 3
 --- !u!114 &6633174411693043690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,7 +376,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.5, z: 1}
+  m_Size: {x: 1.7, y: 2.5, z: 1}
   m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!1001 &3840066700754087555
 PrefabInstance:
