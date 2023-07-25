@@ -56,6 +56,6 @@ public class LevelManager : Singleton<LevelManager>
                 Player.CurrentPlayer.Position.y,
                 levels[_currentLevelIndex].playerSpawnPoint.position.z));
         if (_camera)
-            _camera.transform.position = levels[_currentLevelIndex].cameraLocation.position;
+            _camera.position = levels[_currentLevelIndex].cameraLocation.position;
     }
 }
