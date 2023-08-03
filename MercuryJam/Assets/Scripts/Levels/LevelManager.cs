@@ -38,6 +38,7 @@ public class LevelManager : Singleton<LevelManager>
     public void ResetGame()
     {
         _levelsBeaten = 0;
+        SpawnManager.Instance.maxEnemies = SpawnManager.Instance.DefaultMaxEnemies;
         NewLevel();
     }
     

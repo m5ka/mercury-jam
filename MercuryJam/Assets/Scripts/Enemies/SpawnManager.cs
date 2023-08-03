@@ -15,9 +15,13 @@ public class SpawnManager : Singleton<SpawnManager>
     private readonly List<GameObject> _currentEnemies = new();
     private int _combinedDifficulty;
     private int _enemyCount;
-    
+    public int DefaultMaxEnemies => _defaultMaxEnemies;
+    private int _defaultMaxEnemies;
+
+
     public void Start()
     {
+        _defaultMaxEnemies = maxEnemies;
         StartCoroutine(SpawnEnemy());
     }
 

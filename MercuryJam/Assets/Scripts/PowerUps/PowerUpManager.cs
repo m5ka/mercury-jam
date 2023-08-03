@@ -11,6 +11,7 @@ public class PowerUpManager : Singleton<PowerUpManager>
     {
         if (Random.Range(0,100) <= _spawnChance)
         {
+            Debug.Log(_spawnChance);
             Instantiate(PowerUps[Random.Range(0, PowerUps.Count)], position, Quaternion.identity);
         }
     }
