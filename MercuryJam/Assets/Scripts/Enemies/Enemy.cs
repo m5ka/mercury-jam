@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
         damageTextbox.text = "";
         SpawnManager.Instance.RemoveEnemy(gameObject);
         Destroy(gameObject, 3.0f);
+        PowerUpManager.Instance.AttemptSpawnPowerUp(gameObject.transform.position);
     }
 
     private void TakeDamage(int damage)
