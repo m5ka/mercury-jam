@@ -14,6 +14,7 @@ public class EnemyProjectile : MonoBehaviour
     private float _maxDistance;
     private int _damage;
     private float _speed;
+    private AudioSource _spawnSound;
 
     public void Initialize(Vector3 origin, Vector3 direction, float maxDistance, int damage, float speed)
     {
@@ -29,6 +30,12 @@ public class EnemyProjectile : MonoBehaviour
     private void Awake()
     {
         _transform = GetComponent<Transform>();
+    }
+
+    private void Start()
+    {
+        _spawnSound = GetComponent<AudioSource>();
+        _spawnSound.volume = SoundManager.Instance.soundVolume;
     }
 
     private void Update()

@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     {
         _currentHealth -= damage;
         UpdateHealthbar();
+        SoundManager.Instance.PlayPlayerDamage();
     }
 
     public void HealPlayer(int heal)

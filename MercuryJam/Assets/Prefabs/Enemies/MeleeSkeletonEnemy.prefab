@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 3855516251352003327}
   m_Layer: 0
   m_Name: MeleeSkeletonEnemy
-  m_TagString: Enemy
+  m_TagString: Skeleton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,12 +336,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 7098981598888790076}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 7098981598888790076}
+  m_maskType: 0
 --- !u!1001 &5471713664230682567
 PrefabInstance:
   m_ObjectHideFlags: 0
