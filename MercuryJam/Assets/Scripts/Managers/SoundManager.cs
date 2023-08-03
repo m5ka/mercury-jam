@@ -12,6 +12,7 @@ public class SoundManager : Singleton<SoundManager>
 
     public AudioSource BackgroundMusic;
     public AudioSource PlayerDeath;
+    public AudioSource KillAllExplostion;
 
     public bool MusicMuted = false;
     public bool SoundMuted = false;
@@ -39,5 +40,11 @@ public class SoundManager : Singleton<SoundManager>
     {
         PlayerDeath.volume = soundVolume;
         PlayerDeath.Play();
+    }
+
+    public void PlayKillAllExplostionSound()
+    {
+        KillAllExplostion.volume = soundVolume;
+        KillAllExplostion.Play();
     }
 }

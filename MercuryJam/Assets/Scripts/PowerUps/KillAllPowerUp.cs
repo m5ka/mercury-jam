@@ -17,5 +17,6 @@ public class KillAllPowerUp : MonoBehaviour
     {
         SpawnManager.Instance.ClearEnemies();
         Destroy(gameObject);
+        SoundManager.Instance.PlayKillAllExplostionSound();
     }
 }
