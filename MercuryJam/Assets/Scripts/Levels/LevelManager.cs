@@ -40,6 +40,11 @@ public class LevelManager : Singleton<LevelManager>
         _levelsBeaten = 0;
         SpawnManager.Instance.maxEnemies = SpawnManager.Instance.DefaultMaxEnemies;
         NewLevel();
+
+        Player.CurrentPlayer.maxHealth = Player.CurrentPlayer.defaultMaxHealth;
+        Player.CurrentPlayer.damage = Player.CurrentPlayer.defaultDamage;
+        Player.CurrentPlayer.movementSpeed = Player.CurrentPlayer.defaultMovementSpeed;
+        Player.CurrentPlayer.UpdateHealthbar();
     }
     
     private void Start()

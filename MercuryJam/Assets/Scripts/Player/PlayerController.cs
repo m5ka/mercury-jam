@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
     public Transform playerRotation;
     public LayerMask movementLayerMask;
-    public float movementSpeed = 5.0f;
     public float rotationSpeed = 720f;
     
     private CharacterController _controller;
@@ -36,7 +35,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Move"))
         {
             playerAnimator.SetBool("IsMoving", true);
-            _controller.Move(_direction * (movementSpeed * Time.deltaTime));
+            _controller.Move(_direction * (Player.CurrentPlayer.movementSpeed * Time.deltaTime));
             return;
         }
         playerAnimator.SetBool("IsMoving", false);

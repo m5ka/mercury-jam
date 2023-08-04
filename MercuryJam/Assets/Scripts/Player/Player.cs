@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,6 +16,12 @@ public class Player : MonoBehaviour
     public Animator animator;
     public TextMeshPro damageTextbox;
     public int maxHealth = 10;
+    public int damage = 1;
+    public float movementSpeed = 5.0f;
+
+    public int defaultMaxHealth;
+    public int defaultDamage;
+    public float defaultMovementSpeed;
 
     private Transform _transform;
     private CharacterController _characterController;
@@ -31,6 +38,10 @@ public class Player : MonoBehaviour
     
     public void Start()
     {
+        defaultDamage = damage;
+        defaultMaxHealth = maxHealth;
+        defaultMovementSpeed = movementSpeed;
+
         Spawn();
     }
 
@@ -87,7 +98,7 @@ public class Player : MonoBehaviour
         HUDManager.Instance.resetPanel.SetActive(true);
     }
 
-    private void UpdateHealthbar()
+    public void UpdateHealthbar()
     {
         if (damageTextbox is null)
             return;

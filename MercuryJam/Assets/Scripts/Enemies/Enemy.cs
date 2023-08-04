@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Ability"))
         {
             var ability = other.gameObject.GetComponent<Ability>();
-            TakeDamage(ability.damage);
+            TakeDamage(Player.CurrentPlayer.damage);
             Destroy(other.gameObject);
         }
     }

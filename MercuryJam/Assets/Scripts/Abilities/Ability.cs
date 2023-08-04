@@ -9,7 +9,6 @@ public class Ability : MonoBehaviour
     public float cooldown = 2.0f;
     public float speed = 7.0f;
     public float maxDistance = 24.0f;
-    public int damage = 1;
 
     private Transform _transform;
     private Vector3 _startPoint;
