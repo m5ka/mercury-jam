@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public static Player CurrentPlayer;
     
     public Vector3 Position => _transform.position;
-    public int CurrentHealth => _currentHealth;
+    public int CurrentHealth;
     public bool Dead => _dead;
 
     public Animator animator;
@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
 
     private Transform _transform;
     private CharacterController _characterController;
-    private int _currentHealth;
     private bool _dead = false;
 
     public void Awake()
@@ -47,7 +46,7 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-        if (!_dead && _currentHealth <= 0)
+        if (!_dead && CurrentHealth <= 0)
             Die();
     }
 
@@ -55,24 +54,24 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("IsDead", false);
         _characterController.enabled = true;
-        _currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
         UpdateHealthbar();
         _dead = false;
     }
 
     public void TakeDamage(int damage)
     {
-        _currentHealth -= damage;
+        CurrentHealth -= damage;
         UpdateHealthbar();
         SoundManager.Instance.PlayPlayerDamage();
     }
 
     public void HealPlayer(int heal)
     {
-        _currentHealth += heal;
-        if (_currentHealth > maxHealth )
+        CurrentHealth += heal;
+        if (CurrentHealth > maxHealth )
         {
-            _currentHealth = maxHealth;
+            CurrentHealth = maxHealth;
         }
         UpdateHealthbar();
     }
@@ -102,6 +101,6 @@ public class Player : MonoBehaviour
     {
         if (damageTextbox is null)
             return;
-        damageTextbox.text = _currentHealth + "/" + maxHealth;
+        damageTextbox.text = CurrentHealth + "/" + maxHealth;
     }
 }

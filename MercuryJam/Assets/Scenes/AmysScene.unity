@@ -2464,6 +2464,7 @@ GameObject:
   - component: {fileID: 620033025}
   - component: {fileID: 620033027}
   - component: {fileID: 620033028}
+  - component: {fileID: 620033029}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2573,6 +2574,7 @@ MonoBehaviour:
   resetPanel: {fileID: 1633814186}
   pauseMenu: {fileID: 211097970}
   optionsMenu: {fileID: 984839685}
+  UpgradeMenu: {fileID: 808924652}
 --- !u!114 &620033025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2640,6 +2642,22 @@ MonoBehaviour:
   PowerUps:
   - {fileID: 1268266655746245096, guid: 5f531cbbeef4a6043a5d670dbfb69539, type: 3}
   _spawnChance: 5
+--- !u!114 &620033029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620033016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368bd3e7c7a919b4e8014c073b9c9699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradeHealthButton: {fileID: 284738340}
+  UpgradeDamageButton: {fileID: 1167023805}
+  UpgradeSpeedButton: {fileID: 746367434}
+  HealPlayerButton: {fileID: 231318620}
 --- !u!1001 &712861634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4576,7 +4594,6 @@ MonoBehaviour:
   movementLayerMask:
     serializedVersion: 2
     m_Bits: 55
-  movementSpeed: 6
   rotationSpeed: 720
 --- !u!114 &1336211501
 MonoBehaviour:
@@ -4593,6 +4610,11 @@ MonoBehaviour:
   animator: {fileID: 712861637}
   damageTextbox: {fileID: 341834304}
   maxHealth: 5
+  damage: 1
+  movementSpeed: 5
+  defaultMaxHealth: 0
+  defaultDamage: 0
+  defaultMovementSpeed: 0
 --- !u!1 &1354227230
 GameObject:
   m_ObjectHideFlags: 0
