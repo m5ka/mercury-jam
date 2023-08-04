@@ -10,12 +10,14 @@ public class HUDManager : Singleton<HUDManager>
     public GameObject resetPanel;
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+    public GameObject UpgradeMenu;
     
     private void Start()
     {
         resetPanel.SetActive(false);
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
+        UpgradeMenu.SetActive(false);
     }
 
     public void OpenPauseMenu()
@@ -40,5 +42,17 @@ public class HUDManager : Singleton<HUDManager>
     public void UpdateLevelText()
     {
         levelText.text = "Level: " + LevelManager.Instance.LevelsBeaten;
+    }
+
+    public void OpenUpgradeMenu()
+    {
+        UpgradeMenu.SetActive(true);
+        GameManager.Instance.Pause();
+    }
+
+    public void CloseUpgradeMenu()
+    {
+        UpgradeMenu?.SetActive(false);
+        GameManager.Instance.Unpause();
     }
 }

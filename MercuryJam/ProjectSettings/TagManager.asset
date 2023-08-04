@@ -7,6 +7,9 @@ TagManager:
   - Ability
   - Enemy
   - Floor
+  - EnemyAbility
+  - Skeleton
+  - Bat
   layers:
   - Default
   - TransparentFX

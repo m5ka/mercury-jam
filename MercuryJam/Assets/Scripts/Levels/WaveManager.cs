@@ -21,7 +21,6 @@ public class WaveManager : Singleton<WaveManager>
         _waveDifficulty = (int)Math.Ceiling(_waveDifficulty * 1.2);
         _ladderShouldSpawn = true;
         SpawnManager.Instance.ResetCombinedDifficulty();
-        Player.CurrentPlayer.HealPlayer(2);
     }
 
     public void ResetWave()
@@ -49,6 +48,7 @@ public class WaveManager : Singleton<WaveManager>
                     LevelManager.Instance.levels[LevelManager.Instance.CurrentLevelIndex]
                         .GetComponent<Level>().playerSpawnPoint.position,
                     Quaternion.identity);
+                HUDManager.Instance.OpenUpgradeMenu();
             }
         }
     }

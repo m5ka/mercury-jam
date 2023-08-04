@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting.FullSerializer.Internal;
 using UnityEngine;
@@ -17,6 +18,17 @@ public class LevelManager : Singleton<LevelManager>
     private int _nextLevelIndex;
     private int _currentLevelIndex = 0;
 
+    public void BeginLevel()
+    {
+        if (LevelsBeaten % 5 == 0 && _levelsBeaten != 0)
+        {
+
+            for (int i = 0; i < SpawnManager.Instance.enemyTypes.Count; i++)
+            {
+                SpawnManager.Instance.enemyHealths[i]++;
+            }
+        }
+    }
     public void NewLevel()
     {
         if (levels.Count > 1)
@@ -29,6 +41,8 @@ public class LevelManager : Singleton<LevelManager>
             _currentLevelIndex = _nextLevelIndex;
         }
 
+        
+
         _levelsBeaten++;
 
         UpdatePlayerPosForLevelChange();
@@ -38,7 +52,14 @@ public class LevelManager : Singleton<LevelManager>
     public void ResetGame()
     {
         _levelsBeaten = 0;
+        SpawnManager.Instance.maxEnemies = SpawnManager.Instance.DefaultMaxEnemies;
         NewLevel();
+
+        Player.CurrentPlayer.maxHealth = Player.CurrentPlayer.defaultMaxHealth;
+        Player.CurrentPlayer.damage = Player.CurrentPlayer.defaultDamage;
+        Player.CurrentPlayer.movementSpeed = Player.CurrentPlayer.defaultMovementSpeed;
+        Player.CurrentPlayer.CurrentHealth = Player.CurrentPlayer.maxHealth;
+        Player.CurrentPlayer.UpdateHealthbar();
     }
     
     private void Start()
@@ -57,5 +78,7 @@ public class LevelManager : Singleton<LevelManager>
                 levels[_currentLevelIndex].playerSpawnPoint.position.z));
         if (_camera)
             _camera.position = levels[_currentLevelIndex].cameraLocation.position;
+
+        BeginLevel();
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,16 +10,21 @@ public class Player : MonoBehaviour
     public static Player CurrentPlayer;
     
     public Vector3 Position => _transform.position;
-    public int CurrentHealth => _currentHealth;
+    public int CurrentHealth;
     public bool Dead => _dead;
 
     public Animator animator;
     public TextMeshPro damageTextbox;
     public int maxHealth = 10;
+    public int damage = 1;
+    public float movementSpeed = 5.0f;
+
+    public int defaultMaxHealth;
+    public int defaultDamage;
+    public float defaultMovementSpeed;
 
     private Transform _transform;
     private CharacterController _characterController;
-    private int _currentHealth;
     private bool _dead = false;
 
     public void Awake()
@@ -31,12 +37,16 @@ public class Player : MonoBehaviour
     
     public void Start()
     {
+        defaultDamage = damage;
+        defaultMaxHealth = maxHealth;
+        defaultMovementSpeed = movementSpeed;
+
         Spawn();
     }
 
     public void Update()
     {
-        if (!_dead && _currentHealth <= 0)
+        if (!_dead && CurrentHealth <= 0)
             Die();
     }
 
@@ -44,23 +54,24 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("IsDead", false);
         _characterController.enabled = true;
-        _currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
         UpdateHealthbar();
         _dead = false;
     }
 
     public void TakeDamage(int damage)
     {
-        _currentHealth -= damage;
+        CurrentHealth -= damage;
         UpdateHealthbar();
+        SoundManager.Instance.PlayPlayerDamage();
     }
 
     public void HealPlayer(int heal)
     {
-        _currentHealth += heal;
-        if (_currentHealth > maxHealth )
+        CurrentHealth += heal;
+        if (CurrentHealth > maxHealth )
         {
-            _currentHealth = maxHealth;
+            CurrentHealth = maxHealth;
         }
         UpdateHealthbar();
     }
@@ -86,10 +97,10 @@ public class Player : MonoBehaviour
         HUDManager.Instance.resetPanel.SetActive(true);
     }
 
-    private void UpdateHealthbar()
+    public void UpdateHealthbar()
     {
         if (damageTextbox is null)
             return;
-        damageTextbox.text = _currentHealth + "/" + maxHealth;
+        damageTextbox.text = CurrentHealth + "/" + maxHealth;
     }
 }

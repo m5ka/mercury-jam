@@ -15,9 +15,20 @@ public class SpawnManager : Singleton<SpawnManager>
     private readonly List<GameObject> _currentEnemies = new();
     private int _combinedDifficulty;
     private int _enemyCount;
-    
+    public int DefaultMaxEnemies => _defaultMaxEnemies;
+    private int _defaultMaxEnemies;
+
+    public List<int> enemyHealths;
+
+
     public void Start()
     {
+        for (int i = 0; i < enemyTypes.Count;i++)
+        {
+            enemyHealths.Add(enemyTypes[i].maxHealth);
+        }
+
+        _defaultMaxEnemies = maxEnemies;
         StartCoroutine(SpawnEnemy());
     }
 
@@ -28,15 +39,18 @@ public class SpawnManager : Singleton<SpawnManager>
             if (_enemyCount < maxEnemies && _combinedDifficulty < WaveManager.Instance.WaveDifficulty)
             {
                 Enemy chosenEnemy;
+                int chosenEnemyNumber;
                 do
                 {
-                    chosenEnemy = enemyTypes[Random.Range(0, enemyTypes.Count)];
+                    chosenEnemyNumber = Random.Range(0, enemyTypes.Count);
+                    chosenEnemy = enemyTypes[chosenEnemyNumber];
                 } while (_combinedDifficulty + chosenEnemy.difficulty > WaveManager.Instance.WaveDifficulty);
                 if (Player.CurrentPlayer.CurrentHealth >0)
                 {
                     var level = LevelManager.Instance.levels[LevelManager.Instance.CurrentLevelIndex];
                     var spawnPoint = level.enemySpawnPoints[Random.Range(0, level.enemySpawnPoints.Count)];
                     var spawnedEnemy = Instantiate(chosenEnemy, spawnPoint.position, Quaternion.identity);
+                    spawnedEnemy.maxHealth = enemyHealths[chosenEnemyNumber];
                     _enemyCount++;
                     _currentEnemies.Add(spawnedEnemy.gameObject);
                     _combinedDifficulty += spawnedEnemy.difficulty;

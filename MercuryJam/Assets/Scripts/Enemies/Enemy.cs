@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Ability"))
         {
             var ability = other.gameObject.GetComponent<Ability>();
-            TakeDamage(ability.damage);
+            TakeDamage(Player.CurrentPlayer.damage);
             Destroy(other.gameObject);
         }
     }
@@ -44,6 +44,15 @@ public class Enemy : MonoBehaviour
         damageTextbox.text = "";
         SpawnManager.Instance.RemoveEnemy(gameObject);
         Destroy(gameObject, 3.0f);
+        PowerUpManager.Instance.AttemptSpawnPowerUp(gameObject.transform.position);
+        if (gameObject.tag == "Skeleton")
+        {
+            SoundManager.Instance.PlaySkeletonDeath();
+        }
+        if (gameObject.tag == "Bat")
+        {
+            SoundManager.Instance.PlayBatDeath();
+        }
     }
 
     private void TakeDamage(int damage)
@@ -52,6 +61,17 @@ public class Enemy : MonoBehaviour
         UpdateHealthbar();
         if (_currentHealth <= 0)
             Die();
+        else
+        {
+            if (gameObject.tag == "Skeleton")
+            {
+                SoundManager.Instance.PlaySkeletonDamage();
+            }
+            if (gameObject.tag == "Bat")
+            {
+                SoundManager.Instance.PlayBatDamage();
+            }
+        }
     }
 
     private void UpdateHealthbar()

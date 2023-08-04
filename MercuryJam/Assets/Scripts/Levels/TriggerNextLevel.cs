@@ -14,6 +14,7 @@ public class TriggerNextLevel : MonoBehaviour
         {
             LevelManager.Instance.NewLevel();
             WaveManager.Instance.NextWave();
+            SpawnManager.Instance.maxEnemies++;
             Destroy(gameObject);
         }
     }
